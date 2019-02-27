@@ -1,0 +1,148 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录|综合测评系统</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/header.css"/>#}
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/footer.css"/>#}
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/swiper.css"/>#}
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/animate.min.css"/>#}
+{#		<script src="../../static/js/Swiper_4.4.6_js_swiper.js" type="text/javascript" charset="utf-8"></script>#}
+        {#        Django#}
+        <link rel="stylesheet" type="text/css" href="{% static "css/header.css" %}?ver=1"/>
+		<link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}?ver=1"/>
+		<link rel="stylesheet" type="text/css" href="{% static "css/swiper.css" %}?ver=1"/>
+		<link rel="stylesheet" type="text/css" href="{% static "css/animate.min.css" %}"/>
+        <script src="{% static 'js/Swiper_4.4.6_js_swiper.js' %}" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<header>
+			<!-- 南京理工logo -->
+			<img id="logo-mini" src="{% static 'img/login/logo-mini.png' %}" alt="南京理工大学logo" title="南京理工大学">
+			
+			<!-- 搜索框 -->
+			<div id="searchBox" class="searchBox">
+				<!--搜索按钮图标--> 
+				<img src="{% static 'img/search.png' %}" class="searchIcon" alt="搜索">
+				<!--搜索input框-->
+				<input class="searchInput" id="searchInput" type="text" maxlength="20" value="" placeholder="搜索库存信息">
+			</div>
+			
+			<!-- 登录注册按钮 -->
+			<div id="log-button">
+				<a href="{% url 'zhcp:login' %}#slide2" class="log-button-login">登录</a>
+				<a href="{% url 'zhcp:register' %}" class="log-button-register">注册</a>
+			</div>
+		</header>
+		<!-- 滚动条 -->
+		<div class="swiper-container swiper-container-h">
+			<!-- 背景 -->
+			<div class="swiper-container-background" data-swiper-parallax="-10%"></div>
+			<div class="swiper-wrapper">
+				<div id="slider1" class="swiper-slide" data-hash="slide1">
+					<h1 data-swiper-parallax="-100%">欢迎使用综合测评系统</h1>
+					<div id="slider1-login" data-swiper-parallax="-100%">
+						<a id="slider1-login-a" href="#slide2">点击登录</a>
+					</div>
+				</div>
+				<div id="slider2" class="swiper-slide" data-hash="slide2" >
+					<div id="slider2-login" class="swiper-no-swiping">
+						<h1>综合测评系统</h1>
+						<div id="slider2-login-form">
+							<form action="#" method="post">
+                                {% csrf_token %}
+								学号：<input type="text" id="student_id" name="student_id" value="" placeholder="请输入学号"/><br>
+								密码：<input type="password" name="password" id="password" placeholder="请输入密码" value=""/><br>
+                                <span id="password-wrong">用户名或密码错误</span>
+                                <span id="id-DoesNotExist">用户名不存在<a href="{% url 'zhcp:register' %}">--点我注册--</a></span>
+								<input type="submit" value="登录"/>
+							</form>
+						</div>
+						
+						
+					</div>
+				</div>
+				<div id="slider3" class="swiper-slide" data-hash="slide3">
+					<h1 data-swiper-parallax="-100%">成员简介</h1><hr >
+					<div class="swiper-container swiper-container-v">
+						<div class="swiper-wrapper">
+							<div id="swiper-slider-v-1" class="swiper-slide swiper-slide-v" >
+								<div class="swiper-slide-v-left">
+									<img src="{% static 'img/members/mzx.jpg' %}" >
+								</div>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%">
+									<h1>马子轩</h1>
+									<hr style="margin: 30px 0;">
+									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
+									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
+									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
+									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+								</div>
+							</div>
+							<div id="swiper-slider-v-2" class="swiper-slide swiper-slide-v" >
+								<div class="swiper-slide-v-left">
+									<img src="{% static 'img/members/yzz.jpg' %}" >
+								</div>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%">
+									<h1>杨智渊</h1>
+									<hr style="margin: 30px 0;">
+									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
+									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
+									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
+									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+								</div>
+							</div>
+							<div id="swiper-slider-v-3" class="swiper-slide swiper-slide-v" >
+								<div class="swiper-slide-v-left">
+									<img src="{% static 'img/members/zyy.jpg' %}" >
+								</div>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%">
+									<h1>邹逸妍</h1>
+									<hr style="margin: 30px 0;">
+									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
+									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
+									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
+									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 如果需要分页器 -->
+			<!-- <div class="swiper-pagination"></div> -->
+			
+			<!-- 如果需要导航按钮 -->
+			<div class="swiper-button-prev swiper-button-white"></div>
+			<div class="swiper-button-next swiper-button-white"></div>
+			
+			<!-- 如果需要滚动条 -->
+			<div class="swiper-scrollbar"></div>
+		</div>
+		<footer>
+			<hr style="height:3px;border:none;border-top:2px solid #fc5806;"/>
+			<p>本网站由马子轩制作</p>
+		</footer>
+	</body>
+{#	<script src="../../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>#}
+{#	<script src="../../static/js/header.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../../static/js/swiper-login.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../../static/js/swiper.animate1.0.3.min.js" type="text/javascript" charset="utf-8"></script>#}
+
+{#Django#}
+    <script src="{% static "js/jquery-3.3.1.min.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'js/jquery.color-2.1.2.js' %}" type="text/javascript" charset="UTF-8"></script>
+	<script src="{% static "js/header.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/Ajax-csrf.js" %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static "js/swiper-login.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static "js/swiper.animate1.0.3.min.js" %}" type="text/javascript" charset="utf-8"></script>
+</html>

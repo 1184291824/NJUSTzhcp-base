@@ -1,0 +1,137 @@
+.swiper-container {
+	width: 100%;
+	height: 700px;
+	/* background-color: red; */
+}
+.swiper-container-background{
+	width: 200%;
+	height: 100%;
+	position: absolute;
+	background-image: url(../img/login/loginBackground.png);
+	background-position:left;
+	background-size:auto 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+.swiper-slide{
+	text-align: center;
+	color: white;
+}
+#slider1>h1{
+	margin-top: 200px;
+	font-size: 90px;
+}
+#slider1-login{
+	margin-top: 120px;
+	width: 200px;
+	height: 60px;
+	/* background-color: red; */
+	position: absolute;
+	left: calc(50% - 100px);
+	border: 3px solid white;
+	border-radius: 10px;
+	font-size: 25px;
+	line-height: 60px;
+}
+#slider1-login-a{
+	text-decoration:none;
+}
+#slider1-login-a:link{
+	color: white;
+}
+#slider1-login-a:visited{
+	color: white;
+}
+#slider1-login-a:active{
+	color: white;
+}
+
+
+#slider2-login{
+	width: 400px;
+	height: 300px;
+	background-color: rgba(255,255,255,0.3);
+	position: absolute;
+	top: calc(50% - 150px);
+	left: calc(50% - 200px);
+	/* border: 3px solid white; */
+	border-radius: 10px;
+
+}
+#slider2-login>h1{
+	margin: 10px auto;
+	font-size: 37px;
+}
+#slider2-login-form{
+	border-top: 2px solid rgba(255,255,255,0.4);
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 20px;
+}
+
+#slider2-login-form span{
+	font-size: 15px;
+	display: none;
+}
+#slider2-login-form input{
+	width: 75%;
+	height: 40px;
+	margin: 10px;
+	border: none;
+	border-radius: 10px;
+	font-size: 20px;
+	background-color: rgba(255,255,255,0.3);
+	/* padding-left: 20px; */
+	text-indent: 2em;
+	outline: none;
+	color: white;
+}
+#slider2-login-form input[type="submit"]{
+	margin-top: 30px;
+	background-color: plum;
+	text-indent: 0;
+	width: 93%;
+}
+/* 竖直滑动条样式 */
+.swiper-slide-v{
+	position: relative;
+}
+#slider3>h1{
+	margin-top: 30px;
+	font-size: 80px;
+	letter-spacing: 30px;
+}
+#slider3 hr{
+	margin: 10px 10px 0 10px;
+	background-color: white;
+	border: none;
+	height: 2px;
+	border-radius: 1px;
+	box-shadow: 0 0 20px 2px white;
+}
+.swiper-slide-v-left{
+	float: left;
+	position: absolute;
+	left: 100px;
+	top: 60px;
+	border: 2px solid white;
+	border-radius: 4px;
+	box-shadow: 0 0 20px 2px white;
+	
+}
+.swiper-slide-v-left>img{
+	width: 276px;
+	height: 399px;
+}
+.swiper-slide-v-right{
+	float: left;
+	right: 100px;
+	height: 360px;
+	position: absolute;
+	top: 60px;
+	left: 500px;
+	padding: 20px;
+	border-radius: 4px;
+	box-shadow: 0 0 20px 2px white;
+	text-align: left;
+}

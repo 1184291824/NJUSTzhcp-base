@@ -1,0 +1,85 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "黑体";
+}
+body{
+	background-image: url(../img/login/loginBackground.png);
+	background-position:center;
+	background-size:auto 100%;
+	background-repeat: repeat-x;
+	background-attachment:fixed;
+	min-width: 700px;
+}
+header{
+	width: 100%;
+	height: 44px;
+	background-color: rgba(187,130,153,.7);
+	position: relative;
+}
+header #logo-mini {
+	display: inline-block;
+    height: 32px;
+    margin-left: 16px;
+    margin-top: 6px;
+}
+.searchBox{
+	margin-top: 5px;
+	display: inline-block;
+	width: 300px;
+	height: 34px;
+	background-color: rgba(255,255,255,0.2);
+	position: absolute;
+	border-radius: 22px;
+	left: calc(50% - 150px);
+}
+.searchBox>.searchIcon {
+	margin: 5px;
+	margin-left: 40px;
+	width: 24px;
+	height: 24px;
+	float: left;
+}
+.searchBox>.searchInput {
+	border: none;
+	background: none;
+	display: inline-block;
+	float: left;
+	height: 34px;
+	width: 210px;
+	outline:none;
+	color: white;
+	font-size: medium;
+}
+#log-button{
+	width: 160px;
+	height: 44px;
+	background-color: rgba(255,255,255,0.2);
+	float: right;
+}
+#log-button>a{
+	width: 80px;
+	height: 44px;
+	line-height: 44px;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	font-size: 20px;
+	color: white;
+	text-decoration: none;
+}
+/* #log-button>a:hover{
+	background-color: rgba(255,255,255,0.3);
+*/
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #fff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #fff;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #fff;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #fff;
+}
