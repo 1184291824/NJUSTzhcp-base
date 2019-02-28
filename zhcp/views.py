@@ -84,3 +84,41 @@ def login_check(request):
         return HttpResponse("idDoesNotExist")
 
 
+def register_check(request):
+    """
+    检查注册的用户id是否已经存在
+    :param request:
+    :return:
+    """
+    student_id_input = request.POST.get('student_id')
+    try:
+        Users.objects.get(student_id__exact=student_id_input)
+        return HttpResponse('false')
+    except Users.DoesNotExist:
+        request.session['student_id'] = student_id_input
+        request.session['password'] = request.POST.get('password')
+        return HttpResponse("true")
+
+
+def verification_code_check(request):
+    """
+    检查输入的验证码是否正确，如果正确就增加一个新用户
+    :param request:
+    :return:
+    """
+    code = request.POST.get('code', '1')
+    right_code = request.session['verification_code']
+
+    if code.upper() == right_code.upper():  # 大小写不计，所以都改成大写
+        request.session['name'] = request.POST.get('name')
+        student_id = request.session['student_id']
+        password = request.session['password']
+        name = request.session['name']
+        new_user = Users.add_user(student_id, password, name)
+        new_user.save()
+        return HttpResponse('true')
+    else:
+        return HttpResponse('false')
+
+
+

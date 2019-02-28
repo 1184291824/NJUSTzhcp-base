@@ -23,6 +23,11 @@ class Users(models.Model):
     identity = models.CharField(max_length=20, default="student",)
     score_sum = models.IntegerField(default=0, editable=False)
 
+    @classmethod
+    def add_user(cls, student_id, password, name, ):
+        user = cls(student_id=student_id, password=password, name=name)
+        return user
+
     def __str__(self):
         return self.student_id
 

@@ -89,22 +89,31 @@
 						<div id="slider2-register-form">
 							<form action="#" method="post">
 								<!-- {% csrf_token %} -->
-								<span>姓名：</span><input type="text" name="name" id="name" class="slider2-input" value="" placeholder="请输入姓名"/>
-								<span>性别：</span>
-								<div id="gender-box">
-									
-								</div>
-								<input type="radio" name="gender" value="True" style="display: none;" />
-								<input type="radio" name="gender" value="True" style="display: none;" /><br>
-								<span>QQ：</span><input type="tel" name="QQ" id="QQ" class="slider2-input" value="" placeholder="请输入QQ账号"/>
-								<span>电话：</span><input type="tel" name="tel" id="tel" class="slider2-input" value="" placeholder="请输入电话号码"/><br>
-								<span>邮箱：</span><input type="email" name="email" id="email" class="slider2-input" value="" placeholder="请输入邮箱"/><br>
+								<span>姓名：</span><input type="text" name="name" id="name" class="slider2-input" value="" placeholder="请输入姓名"/><br>
+                                <span>验证码：</span><input type="text" name="VerificationCode" id="VerificationCode" class="slider2-input" value="" placeholder="请输入验证码" /><br>
 								<input id="slider2-submit" type="submit" value="确认" />
 							</form>
 						</div>
 					</div>
+                    <div id="slider2-note" >
+						<h1>注意</h1><hr >
+                        <img src="{% url 'zhcp:verificationCode' %}" alt="验证码" title="点击刷新验证码" id="verificationCode">
+                        <span>点击图片刷新验证码</span>
+						<div id="slider2-note-errors">
+							<hr >
+							<h1></h1>
+						</div>
+					</div>
 				</div>
-				<div class="swiper-slide">Slide 3</div>
+				<div class="swiper-slide">
+                    <div id="slider3-register">
+                        <img src="{% static 'img/register/完成.png' %}" alt="完成">
+                        <h1>恭喜你已经完成注册！</h1>
+                    </div>
+                    <div id="slider3-login" >
+						<a id="slider3-login-a" href="{% url 'zhcp:login' %}#slide2">点击登录</a>
+					</div>
+                </div>
 			</div>
 			<!-- 如果需要分页器 -->
 			<!-- <div class="swiper-pagination"></div> -->

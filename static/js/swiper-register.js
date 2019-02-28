@@ -27,8 +27,13 @@ $(document).ready(function(){
 		// 回调函数
 		on:{
 			progress: function (){//slider切换结束时执行
+
 				var progress = this.progress;
-				var $bar = $('.register-progress-bar')
+				var $bar = $('.register-progress-bar');
+				$bar.stop();
+				$("#step1").stop();
+				$("#step2").stop();
+				$("#step3").stop();
 				switch (progress){
 					case 0:$bar.animate({"width":"33%",},1000);
 					$("#step1").animate({"font-size":"19px","color":"white"},1000);
@@ -64,11 +69,13 @@ $(document).ready(function(){
 	var input_student_id = $("#student_id");
 	var input_password = $("#password");
 	var input_password_check = $("#password_check");
-	
+	var input_name = $('#name');
+	var input_VerificationCode = $('#VerificationCode');
+
 	//input输入框-默认聚焦到student_id
 	$("#student_id").focus();
 	
-	//给input_student_id添加值改变事件
+	//给slider1中的input添加值改变事件
 	$('.slider1-input').bind('input propertychange', function()
 	{
 		$("#slider1-note-errors").fadeOut(500);
@@ -106,17 +113,16 @@ $(document).ready(function(){
 		//判断用户名是否已经存在
 		$.ajax({
 			type:"POST",
-			url:"checkId/",
+			url:"check/",
 			data:{
-				'student_ID':$("#student_id").val(),
+				'student_id':$("#student_id").val(),
+				'password':$('#password').val(),
 			},
 			success: function(result){
-				if(result=="true"){
-					console.log("成功");
+				if(result==="true"){
 					mySwiper.slideTo(1,1000,false);
 				}
-				else if(result=="false"){
-					console.log("失败");
+				else if(result==="false"){
 					$("#slider1-note-errors").fadeIn(1000);
 					$("#slider1-note-errors h1").text("用户名已经存在！");
 					input_student_id.css("border", "1px solid red");
@@ -125,4 +131,65 @@ $(document).ready(function(){
 			},
 		})
 	});
-})
+
+	//给slider2-img添加点击事件
+	$('#verificationCode').click(function () {
+        // this.src="/Day14_jsp/Code?"+new Date().getTime();
+		this.src="verificationCode/?"+new Date().getTime();
+	});
+
+	//给slider2中的input添加值改变事件
+	$('.slider2-input').bind('input propertychange', function()
+	{
+		$("#slider2-note-errors").fadeOut(500);
+		$(this).css("border","none");
+	});
+
+	//给slider2-submit添加点击事件
+	$('#slider2-submit').click(function(){
+		event.preventDefault();//去除本身的事件
+
+		//判断name输入框是否为空
+		if (input_name.val()===""){
+			$("#slider2-note-errors").fadeIn(1000);
+			$("#slider2-note-errors h1").text("姓名不能为空！");
+			input_name.css("border", "1px solid red");
+			input_name.focus();
+			return 0;
+		}
+
+		//判断验证码是否正确
+		$.ajax({
+			type:"POST",
+			url:"verificationCode/check/",
+			data:{
+				'name':input_name.val(),
+				'code':input_VerificationCode.val(),
+			},
+			success: function(result){
+				if(result==="true"){
+					mySwiper.slideTo(2,1000,false);
+				}
+				else if(result==="false"){
+					$("#slider2-note-errors").fadeIn(1000);
+					$("#slider2-note-errors h1").text("验证码错误");
+					input_VerificationCode.css("border", "1px solid red");
+					input_VerificationCode.focus();
+				}
+			},
+		})
+	});
+	//为slide3中的a标签添加鼠标移入移出事件
+	$("#slider3-login-a").mouseenter(function(){
+		$("#slider3-login").animate({
+			backgroundColor:"rgba(255,255,255,0.4)",
+			fontSize:"26px",
+		},100);
+	});
+	$("#slider3-login-a").mouseout(function(){
+		$("#slider3-login").animate({
+			backgroundColor:"rgba(0,0,0,0)",
+			fontSize:"25px",
+		},100);
+	});
+});

@@ -147,7 +147,7 @@
 
 /* slider2样式 */
 #slider2-register{
-	width: 60%;
+	width: 40%;
 	height: 300px;
 	/* background-color: rgba(255,255,255,0.3); */
 	position: absolute;
@@ -170,10 +170,10 @@
 }
 #slider2-register-form span{
 	display: inline-block;
-	width: 60px;
+	width: 80px;
 }
-#slider2-register-form input, #gender-box{
-	width: 35%;
+#slider2-register-form input{
+	width: 71%;
 	height: 40px;
 	margin: 10px;
 	border: none;
@@ -185,18 +185,13 @@
 	outline: none;
 	color: white;
 }
-#gender-box{
-	margin: 0;
-	padding: 0;
-	display: inline-block;
-	vertical-align: middle;
+#slider2-register-form input[type='submit'] {
+    margin-top: 90px;
+    background-color: plum;
+    text-indent: 0;
+    width: calc(60px + 73%);
 }
-#slider2-register-form input[type="submit"]{
-	/* margin-top: 30px; */
-	background-color: plum;
-	text-indent: 0;
-	width: calc(75% + 60px);
-}
+
 
 #slider2-note{
 	float: right;
@@ -214,4 +209,47 @@
 	display: none;
 	text-align: center;
 }
+
+/* slider3样式 */
+#slider3-register {
+    /*background-color: red;*/
+    margin: 6% auto;
+    text-align: center;
+}
+#slider3-register>h1{
+	margin: 10px auto;
+	font-size: 37px;
+	padding-left: 15px;
+	display: inline-block;
+	vertical-align: middle;
+}
+#slider3-register>img{
+	display: inline-block;
+	vertical-align: middle;
+}
+#slider3-login {
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    left: calc(-100px + 50%);
+    border: 3px solid white;
+    border-radius: 10px;
+    font-size: 25px;
+    line-height: 60px;
+    text-align: center;
+}
+
+#slider3-login-a{
+	text-decoration:none;
+}
+#slider3-login-a:link{
+	color: white;
+}
+#slider3-login-a:visited{
+	color: white;
+}
+#slider3-login-a:active{
+	color: white;
+}
+
 
