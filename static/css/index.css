@@ -1,0 +1,53 @@
+#log-button{
+    width: 80px;
+}
+#span-username{
+    color: white;
+    float: right;
+    line-height: 44px;
+    padding: 0 20px;
+}
+#span-username>img{
+    height: 30px;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+.main{
+    margin: 50px 50px;
+}
+.box{
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+	line-height: 40px;
+	color: white;
+	box-shadow: 0 0 10px 1px rgba(0,0,0,0.5);
+	margin: 20px 20px;
+	position: relative;
+}
+.header-bar{
+    height: 40px;
+    width: 200px;
+}
+.border-bottom{
+	width: 100%;
+	height: 3px;
+	background-color: #f8f8f8;
+	box-shadow: 0 -1px 20px 1px #F8F8F8;
+	position: absolute;
+	bottom: 0;
+}
+.user{
+	background-color: rgba(0,0,0,0.3);
+	margin: 40px 20px;
+	padding: 40px;
+	width: 380px;
+	height: 380px;
+}
+.user>img{
+	width: 200px;
+}
+.user>table{
+	width: 360px;
+	color: white;
+	font-size: 20px;
+}

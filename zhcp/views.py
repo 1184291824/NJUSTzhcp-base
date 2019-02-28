@@ -37,9 +37,20 @@ def index(request):
     :return:
     """
     login_status = request.session.get('login_status', 0)
+
     if login_status == 1:
-        request.session['login_status'] = 0  # 为了测试将登录状态置0
-        return render(request, 'index.html')
+        # request.session['login_status'] = 0  # 为了测试将登录状态置0
+        student_id = request.session.get('student_id', 'None')
+        user = Users.objects.get(student_id__exact=student_id)
+        name = user.name
+        identity = user.identity
+        score_sum = user.score_sum
+        return render(request, 'index.html', {
+            'name': name,
+            'student_id': student_id,
+            'identity': identity,
+            'score_sum': score_sum,
+        })
     else:
         return redirect('zhcp:login')
 
@@ -77,6 +88,8 @@ def login_check(request):
         password = student.password
         if password_input == password:
             request.session['login_status'] = 1
+            request.session['student_id'] = student.student_id
+            request.session['password'] = password
             return HttpResponse("true")
         else:
             return HttpResponse("passwordWrong")

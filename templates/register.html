@@ -66,9 +66,9 @@
 						<div id="slider1-register-form" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
 							<form action="#" method="post">
 								{% csrf_token %}
-								学号：<input type="text" id="student_id" name="student_id" value="" placeholder="请输入学号" class="ani slider1-input" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.2s" swiper-animate-delay="0.3s"/><br>
-								密码：<input type="password" name="password" id="password" placeholder="请输入密码" value="" class="ani slider1-input" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.4s" swiper-animate-delay="0.3s"/><br>
-								确认：<input type="password" name="password_check" id="password_check" placeholder="请再次输入密码" value="" class="ani slider1-input" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.6s" swiper-animate-delay="0.3s"/><br>
+								学号：<input type="text" id="student_id" name="student_id" value="" placeholder="请输入学号" class="ani slider1-input" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.2s" swiper-animate-delay="0.3s" maxlength="12"/><br>
+								密码：<input type="password" name="password" id="password" placeholder="请输入密码" value="" class="ani slider1-input" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.4s" swiper-animate-delay="0.3s" maxlength="20"/><br>
+								确认：<input type="password" name="password_check" id="password_check" placeholder="请再次输入密码" value="" class="ani slider1-input" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.6s" swiper-animate-delay="0.3s" maxlength="20"/><br>
 								<input id="slider1-submit" type="submit" value="确定" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.8s" swiper-animate-delay="0.3s"/>
 							</form>
 						</div>
@@ -89,8 +89,8 @@
 						<div id="slider2-register-form">
 							<form action="#" method="post">
 								<!-- {% csrf_token %} -->
-								<span>姓名：</span><input type="text" name="name" id="name" class="slider2-input" value="" placeholder="请输入姓名"/><br>
-                                <span>验证码：</span><input type="text" name="VerificationCode" id="VerificationCode" class="slider2-input" value="" placeholder="请输入验证码" /><br>
+								<span>姓名：</span><input type="text" name="name" id="name" class="slider2-input" value="" placeholder="请输入姓名" maxlength="20"/><br>
+                                <span>验证码：</span><input type="text" name="VerificationCode" id="VerificationCode" class="slider2-input" value="" placeholder="请输入验证码" maxlength="4"/><br>
 								<input id="slider2-submit" type="submit" value="确认" />
 							</form>
 						</div>
@@ -119,8 +119,8 @@
 			<!-- <div class="swiper-pagination"></div> -->
 
 			<!-- 如果需要导航按钮 -->
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
+{#			<div class="swiper-button-prev"></div>#}
+{#			<div class="swiper-button-next"></div>#}
 		</div>
 		
 		<footer>

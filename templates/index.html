@@ -1,10 +1,81 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>主页|综合测评系统</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/header.css" %}?ver=1"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}?ver=1"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}?ver=1"/>
+	
+{#	<link rel="stylesheet" type="text/css" href="../static/css/header.css"/>#}
+{#	<link rel="stylesheet" type="text/css" href="../static/css/footer.css"/>#}
+{#	<link rel="stylesheet" type="text/css" href="../static/css/index.css"/>#}
 </head>
 <body>
-主页|综合测评系统
+    <header>
+        <!-- 南京理工logo -->
+        <img id="logo-mini" src="{% static 'img/login/logo-mini.png' %}" alt="南京理工大学logo" title="南京理工大学">
+
+        <!-- 搜索框 -->
+        <div id="searchBox" class="searchBox">
+            <!--搜索按钮图标-->
+            <img src="{% static 'img/search.png' %}" class="searchIcon" alt="搜索">
+            <!--搜索input框-->
+            <input class="searchInput" id="searchInput" type="text" maxlength="20" value="" placeholder="搜索库存信息">
+        </div>
+
+        <!-- 注销按钮 -->
+        <div id="log-button">
+            <a href="{% url 'zhcp:index' %}" class="log-button-login-1">注销</a>
+        </div>
+
+        <!-- 用户 -->
+        <span id="span-username"><img src="{% static 'img/index/用户.png' %}" alt="{{ name }}">{{ name }}</span>
+    </header>
+    <div id="main" class="main">
+		<!-- 小标题 -->
+        <div id="header-bar" class="box header-bar">
+			<span>欢迎使用综合测评系统</span>
+			<div class="border-bottom"></div>
+        </div>
+		<!-- 桌面 -->
+		<div id="table">
+			<div id="user" class="box user">
+				<img src="{% static 'img/index/用户big.png' %}" alt="{{ name }}"/>
+				<table border="0" cellspacing="5px" cellpadding="" >
+					<tr>
+						<td>姓名：</td>
+						<td>{{ name }}</td>
+					</tr>
+					<tr>
+						<td>学号：</td>
+                        <td>{{ student_id }}</td>
+					</tr>
+					<tr>
+						<td>身份：</td>
+                        <td>{{ identity }}</td>
+					</tr>
+					<tr>
+						<td>总分：</td>
+                        <td>{{ score_sum }}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+    </div>
+    <footer>
+        <hr style="height:3px;border:none;border-top:2px solid #fc5806;"/>
+        <p>本网站由马子轩制作</p>
+    </footer>
+    <script src="{% static "js/jquery-3.3.1.min.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'js/jquery.color-2.1.2.js' %}" type="text/javascript" charset="UTF-8"></script>
+    <script src="{% static "js/header.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/Ajax-csrf.js" %}" type="text/javascript" charset="utf-8"></script>
+	
+{#	<script src="../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../static/js/Ajax-csrf.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../static/js/header.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../static/js/jquery.color-2.1.2.js" type="text/javascript" charset="utf-8"></script>#}
 </body>
 </html>

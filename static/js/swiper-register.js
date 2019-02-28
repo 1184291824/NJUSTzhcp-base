@@ -8,6 +8,7 @@ $(document).ready(function(){
 		// noSwiping: true,//设置进制滑动
 		parallax: true,//设置视差效果
 		centeredSlides: true,//块居中
+		allowTouchMove: false,//进制鼠标拖动
 
 // 		// 如果需要分页器
 // 		pagination: {
@@ -19,10 +20,10 @@ $(document).ready(function(){
 // 		},
 
 		// 如果需要前进后退按钮
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
+		// navigation: {
+		// 	nextEl: '.swiper-button-next',
+		// 	prevEl: '.swiper-button-prev',
+		// },
 		
 		// 回调函数
 		on:{

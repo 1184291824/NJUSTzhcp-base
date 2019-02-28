@@ -53,8 +53,8 @@
 						<div id="slider2-login-form">
 							<form action="#" method="post">
                                 {% csrf_token %}
-								学号：<input type="text" id="student_id" name="student_id" value="" placeholder="请输入学号"/><br>
-								密码：<input type="password" name="password" id="password" placeholder="请输入密码" value=""/><br>
+								学号：<input type="text" id="student_id" name="student_id" value="" placeholder="请输入学号" maxlength="12"/><br>
+								密码：<input type="password" name="password" id="password" placeholder="请输入密码" value="" maxlength="20"/><br>
                                 <span id="password-wrong">用户名或密码错误</span>
                                 <span id="id-DoesNotExist">用户名不存在<a href="{% url 'zhcp:register' %}">--点我注册--</a></span>
 								<input type="submit" value="登录"/>
@@ -65,52 +65,59 @@
 					</div>
 				</div>
 				<div id="slider3" class="swiper-slide" data-hash="slide3">
-					<h1 data-swiper-parallax="-100%">成员简介</h1><hr >
+					<h1 data-swiper-parallax="-100%">网站|简介</h1><hr >
 					<div class="swiper-container swiper-container-v">
 						<div class="swiper-wrapper">
 							<div id="swiper-slider-v-1" class="swiper-slide swiper-slide-v" >
 								<div class="swiper-slide-v-left">
-									<img src="{% static 'img/members/mzx.jpg' %}" >
+									<img src="{% static 'img/members/mzx.jpg' %}" alt="马子轩">
 								</div>
 								<div class="swiper-slide-v-right" data-swiper-parallax="-100%">
-									<h1>马子轩</h1>
+									<h1>作者|马子轩</h1>
 									<hr style="margin: 30px 0;">
-									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
-									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
-									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
-									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
-									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
-									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+									<p>&gt; 南京理工大学电光学院16级本科生</p>
+									<p>&gt; 学习成绩优异，平常乐于助人</p>
+									<p>&gt; 热爱编程和网站制作，在CSDN网站发表博客29篇，排名15万+，拥有粉丝48人</p>
+									<p>&gt; 我已经在<a href="https://www.pythonanywhere.com/" target="_blank">pythonanywhere</a>部署了多个小型web程序和网页游戏，如<a href="http://1184291824.pythonanywhere.com/blueBlock" target="_blank">《别碰白块》</a>，<a href="http://1184291824.pythonanywhere.com/shootGame" target="_blank">《射击练习》</a>等</p>
+									<p>&gt; 目前仍在学习网站制作，也非常喜欢和大家交流，谢谢~~~</p>
 								</div>
 							</div>
 							<div id="swiper-slider-v-2" class="swiper-slide swiper-slide-v" >
 								<div class="swiper-slide-v-left">
-									<img src="{% static 'img/members/yzz.jpg' %}" >
+									<img src="{% static 'img/members/django.jpg' %}" style="width: 600px" alt="django">
 								</div>
-								<div class="swiper-slide-v-right" data-swiper-parallax="-100%">
-									<h1>杨智渊</h1>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%" style="left: 750px">
+									<h1>后端框架|django</h1>
 									<hr style="margin: 30px 0;">
-									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
-									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
-									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
-									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
-									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
-									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+									<p>&gt; Django是一个开放源代码的Web应用框架，由Python写成。采用了MVC的框架模式，即模型M，视图V和控制器C</p>
+                                    <p>&gt; 它最初是被开发来用于管理劳伦斯出版集团旗下的一些以新闻内容为主的网站的，即是CMS（内容管理系统）软件。</p>
+                                    <p>&gt; 这套框架是以比利时的吉普赛爵士吉他手Django Reinhardt来命名的。</p>
 								</div>
 							</div>
 							<div id="swiper-slider-v-3" class="swiper-slide swiper-slide-v" >
 								<div class="swiper-slide-v-left">
-									<img src="{% static 'img/members/zyy.jpg' %}" >
+									<img src="{% static 'img/members/jQuery.gif' %}" style="width: 400px; height: 400px" alt="jQuery">
 								</div>
-								<div class="swiper-slide-v-right" data-swiper-parallax="-100%">
-									<h1>邹逸妍</h1>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%" style="left: 600px">
+									<h1>前端框架|jQuery</h1>
 									<hr style="margin: 30px 0;">
-									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
-									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
-									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
-									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
-									<p>您好！我来自郑州，我是一名信息工程大学印刷工程专业应届本科即将毕业的学员。</p>
-									<p>我的性格偏于内向，为人坦率、热情、讲求原则；处事乐观、专心、细致、头脑清醒；富有责任心、乐于助人。</p>
+									<p>&gt; jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。</p>
+									<p>&gt; jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。</p>
+									<p>&gt; 它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。</p>
+									<p>&gt; jQuery的核心特性可以总结为：具有独特的链式语法和短小清晰的多功能接口；具有高效灵活的css选择器，并且可对CSS选择器进行扩展；拥有便捷的插件扩展机制和丰富的插件。</p>
+								</div>
+							</div>
+                            <div id="swiper-slider-v-4" class="swiper-slide swiper-slide-v" >
+								<div class="swiper-slide-v-left">
+									<img src="{% static 'img/members/swiper.png' %}" style="width: 335px; height: 118px" alt="swiper">
+								</div>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%" style="left: 550px">
+									<h1>前端框架|swiper</h1>
+									<hr style="margin: 30px 0;">
+									<p>&gt; Swiper 是一款免费以及轻量级的移动设备触控滑块的js框架，使用硬件加速过渡（如果该设备支持的话）。</p>
+									<p>&gt; 主要是为IOS而设计的，同时，在Android、WP8系统也有着良好的用户体验，Swiper从3.0开始不再全面支持PC端。</p>
+									<p>&gt; 因此，如需在PC上兼容更多的浏览器，可以选择Swiper2.x（甚至支持IE7）。</p>
+									<p>&gt; Swiper 完全免费并开源（MIT Licensed），无论你使用在个人网站或商业网站，都无需付费。</p>
 								</div>
 							</div>
 						</div>

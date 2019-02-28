@@ -1,6 +1,22 @@
 # 更新日志
 
-
+- 制作了初步的index界面
+- 完善登录和注册界面，排除了已知bug
+- 【修改的文件】
+    - templates
+        - login.html
+        - register.html
+        - index.html
+    - static
+        - js
+            - swiper-register.js
+        - css
+            - index.css
+        - img
+            - index
+                - 用户.png
+    - zhcp
+        - views.py
 ---
 ### 2019.12.28 21:08：
 - 更新了登录和注册的大部分功能，基本完善登录和注册用户的功能
