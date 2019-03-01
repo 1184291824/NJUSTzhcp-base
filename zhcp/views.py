@@ -1,12 +1,13 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import Users, Activity, Application
+from django.contrib.auth import logout
 
 # Create your views here.
 
 
 # 测试
 def test(request):
-    return HttpResponse('success')
+    return render(request, 'myScore.html')
 
 
 # 更新总分
@@ -134,4 +135,32 @@ def verification_code_check(request):
         return HttpResponse('false')
 
 
+def logout_view(request):
+    logout(request)
+    return redirect('zhcp:index')
+
+
+def my_score(request):
+    """
+    返回“我的加分”页面
+    :param request:
+    :return: {  'user': user,
+                'application_list': application_list,
+                'activity_list': activity_list,
+            }
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        student_id = request.session.get('student_id', 'None')
+        user = Users.objects.get(student_id__exact=student_id)
+        application_list = Application.objects.filter(student_id__student_id__exact=student_id)
+        activity_list = Activity.objects.filter(student_id__student_id__exact=student_id)
+        return render(request, 'myScore.html', {
+            'user': user,
+            'application_list': application_list,
+            'activity_list': activity_list,
+        })
+    else:
+        return redirect('zhcp:login')
 

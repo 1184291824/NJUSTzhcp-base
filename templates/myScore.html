@@ -1,0 +1,25 @@
+{% extends 'base1.html' %}
+{% block title %}
+我的加分
+{% endblock %}
+{% block  content-title %}
+我的加分
+{% endblock %}
+{% block content %}
+<table>
+    <tr>
+        <th>名称</th>
+        <th>加分</th>
+        <th>提交时间</th>
+    </tr>
+
+{% for application in application_list %}
+    <tr>
+        <td>{{ application.name }}</td>
+        <td>{{ application.score }}</td>
+        <td>{{ application.create_time }}</td>
+    </tr>
+{% endfor %}
+
+</table>
+{% endblock %}

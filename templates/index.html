@@ -27,7 +27,7 @@
 
         <!-- 注销按钮 -->
         <div id="log-button">
-            <a href="{% url 'zhcp:index' %}" class="log-button-login-1">注销</a>
+            <a href="{% url 'zhcp:logout' %}" class="log-button-login-1">注销</a>
         </div>
 
         <!-- 用户 -->
@@ -63,7 +63,7 @@
 				</table>
 			</div>
 			<div id="menu" class="menu">
-				<a href="login.html" id="menu-option-1" class="box menu-option">
+				<a href="{% url 'zhcp:myScore' %}" id="menu-option-1" class="box menu-option">
 					<div>
 						<img src="{% static 'img/index/成绩.png' %}" class="menu-option-img" alt="我的加分">
 					</div>
@@ -110,7 +110,9 @@
     <script src="{% static 'js/jquery.color-2.1.2.js' %}" type="text/javascript" charset="UTF-8"></script>
     <script src="{% static "js/header.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
     <script src="{% static "js/Ajax-csrf.js" %}" type="text/javascript" charset="utf-8"></script>
-    <script src="{% static "js/index.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/index.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
+
+
 	
 {#	<script src="../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>#}
 {#	<script src="../static/js/Ajax-csrf.js" type="text/javascript" charset="utf-8"></script>#}
