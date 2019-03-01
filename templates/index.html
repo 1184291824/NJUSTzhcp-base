@@ -40,7 +40,7 @@
 			<div class="border-bottom"></div>
         </div>
 		<!-- 桌面 -->
-		<div id="table">
+		<div id="table" style="position: relative;">
 			<div id="user" class="box user">
 				<img src="{% static 'img/index/用户big.png' %}" alt="{{ name }}"/>
 				<table border="0" cellspacing="5px" cellpadding="" >
@@ -54,13 +54,51 @@
 					</tr>
 					<tr>
 						<td>身份：</td>
-                        <td>{{ identity }}</td>
+                        <td id="identity">{{ identity }}</td>
 					</tr>
 					<tr>
 						<td>总分：</td>
                         <td>{{ score_sum }}</td>
 					</tr>
 				</table>
+			</div>
+			<div id="menu" class="menu">
+				<a href="login.html" id="menu-option-1" class="box menu-option">
+					<div>
+						<img src="{% static 'img/index/成绩.png' %}" class="menu-option-img" alt="我的加分">
+					</div>
+					<span>我的加分</span>
+				</a>
+				<a id="menu-option-2" class="box menu-option">
+					<div>
+						<img src="{% static 'img/index/申请.png' %}" class="menu-option-img" alt="提交申请">
+					</div>
+					<span>提交申请</span>
+				</a>
+				<a id="menu-option-3" class="box menu-option">
+					<div>
+						<img src="{% static 'img/index/我的申请.png' %}" class="menu-option-img" alt="我的申请">
+					</div>
+					<span>我的申请</span>
+				</a>
+				<a id="menu-option-4" class="box menu-option">
+					<div>
+						<img src="{% static 'img/index/我的活动.png' %}" class="menu-option-img" alt="我的活动">
+					</div>
+					<span>我的活动</span>
+				</a>
+				<a id="menu-option-5" class="box menu-option">
+					<div>
+						<img src="{% static 'img/index/审批申请.png' %}" class="menu-option-img" alt="申请审核">
+					</div>
+					<span>申请审核</span>
+				</a>
+				<a id="menu-option-6" class="box menu-option">
+					<div>
+						<img src="{% static 'img/index/活动.png' %}" class="menu-option-img" alt="提交活动">
+					</div>
+					<span>提交活动</span>
+				</a>
 			</div>
 		</div>
     </div>
@@ -72,10 +110,12 @@
     <script src="{% static 'js/jquery.color-2.1.2.js' %}" type="text/javascript" charset="UTF-8"></script>
     <script src="{% static "js/header.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
     <script src="{% static "js/Ajax-csrf.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/index.js" %}" type="text/javascript" charset="utf-8"></script>
 	
 {#	<script src="../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>#}
 {#	<script src="../static/js/Ajax-csrf.js" type="text/javascript" charset="utf-8"></script>#}
 {#	<script src="../static/js/header.js" type="text/javascript" charset="utf-8"></script>#}
 {#	<script src="../static/js/jquery.color-2.1.2.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../static/js/index.js" type="text/javascript" charset="utf-8"></script>#}
 </body>
 </html>
