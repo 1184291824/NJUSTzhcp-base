@@ -7,7 +7,8 @@ from django.contrib.auth import logout
 
 # 测试
 def test(request):
-    return HttpResponse(request.META.get("HTTP_REFERER"))
+    user = Users.objects.get(pk=1)
+    return HttpResponse(user)
 
 
 # 更新总分
@@ -169,8 +170,10 @@ def my_score(request):
     if login_status == 1:
         student_id = request.session.get('student_id', 'None')
         user = Users.objects.get(student_id__exact=student_id)
-        application_list = Application.objects.filter(student_id__student_id__exact=student_id, status__exact=True)
-        activity_list = Activity.objects.filter(student_id__student_id__exact=student_id)
+        application_list = Application.objects.filter(student_id__exact=user, status__exact=True)
+        activity_list = Activity.objects.filter(
+            student_id__exact=user,
+        )
         return render(request, 'myScore.html', {
             'user': user,
             'application_list': application_list,
@@ -217,6 +220,68 @@ def submit_application_add(request):
             detail=detail,
         )
         new_application.save()
-        return HttpResponse('true')
+        return redirect('zhcp:submitApplicationSuccess')
     else:
-        return render(request, 'login.html')
+        return redirect('zhcp:index')
+
+
+def submit_application_success(request):
+    """
+    当提交表单成功后，会重定向到这个函数，返回成功的HTML
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        return render(request, 'submitApplicationSuccess.html')
+    else:
+        return redirect('zhcp:login')
+
+
+def my_application(request):
+    """
+    返回“我的申请”界面，分为
+        :without_apply: 未审核
+        :success: 审核通过
+        :fail: 审核未通过
+
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+    if login_status == 1:
+        student_id = request.session['student_id']
+        user = Users.objects.get(student_id__exact=student_id)
+        without_apply = Application.objects.filter(student_id__student_id__exact=student_id, captain_id__isnull=True)
+        success = Application.objects.filter(student_id__student_id__exact=student_id, status__exact=True)
+        fail = Application.objects.filter(
+            student_id__student_id__exact=student_id,
+            status__exact=False,
+            captain_id__isnull=False,
+        )
+        return render(request, 'myApplication.html', {
+            'user': user,
+            'without_apply': without_apply,
+            'success': success,
+            'fail': fail,
+        })
+    else:
+        return redirect('zhcp:login')
+
+
+def my_activity(request):
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        student_id = request.session.get('student_id', 'None')
+        user = Users.objects.get(student_id__exact=student_id)
+        activity_list = Activity.objects.filter(
+            student_id__exact=user,
+        )
+        return render(request, 'myActivity.html', {
+            'user': user,
+            'activity_list': activity_list,
+        })
+    else:
+        return redirect('zhcp:login')

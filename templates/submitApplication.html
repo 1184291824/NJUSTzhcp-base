@@ -1,9 +1,13 @@
 {% extends 'base1.html' %}
+{% load staticfiles %}
 {% block title %}
 提交申请
 {% endblock %}
 {% block  content-title %}
 提交申请
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static "css/submitApplication.css" %}?ver=1"/>
 {% endblock %}
 {% block content %}
     <div id="submit-application-form" class="submit-application-form" style="overflow: auto">

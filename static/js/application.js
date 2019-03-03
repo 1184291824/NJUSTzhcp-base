@@ -24,7 +24,7 @@ $(document).ready(function(){
 	}
 
 
-	//submitApplication\
+	//submitApplication
 	let application_input = $('.submit-application-input');
 	let submit_application = $('#submit-application');
 	let application_name = $('#application-name');
@@ -79,5 +79,13 @@ $(document).ready(function(){
 			},
 		})
 
+	})
+
+
+
+	//myActivity页面
+	//给每一行表格添加点击效果，点击之后出现详细信息
+	$('.myActivity-base').click(function () {
+		$(this).next().fadeToggle(500);
 	})
 });

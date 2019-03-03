@@ -60,9 +60,10 @@ class Application(models.Model):
     student_id = models.ForeignKey(Users, on_delete=models.CASCADE, related_name="application")
     name = models.CharField(max_length=20)
     score = models.IntegerField()
-    detail = models.TextField(max_length=300, blank=True)
+    detail = models.TextField(max_length=300, blank=True, null=True)
     status = models.BooleanField(default=False)
-    captain_id = models.CharField(max_length=12, blank=True)
+    captain_id = models.CharField(max_length=12, blank=True, null=True)
+    # captain_id = models.ForeignKey(Users, on_delete=models.CASCADE, blank=True, null=True)
     create_time = models.DateTimeField(auto_now_add=True)
 
     @classmethod
@@ -90,11 +91,12 @@ class Application(models.Model):
 
 
 class Activity(models.Model):
-    student_id = models.ManyToManyField(Users, blank=True)
+    student_id = models.ManyToManyField(Users, blank=True, related_name='Activity_student_id')
     name = models.CharField(max_length=20)
     score = models.IntegerField()
-    detail = models.TextField(max_length=300, blank=True)
-    create_time = models.DateTimeField(auto_now_add=True)
+    detail = models.TextField(max_length=300, blank=True, null=True)
+    create_by = models.ManyToManyField(Users, related_name='Activity_create_by')
+    create_time = models.DateTimeField(auto_now_add=True,)
 
     def __str__(self):
         return self.name

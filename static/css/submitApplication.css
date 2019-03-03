@@ -1,0 +1,40 @@
+/*submitApplication中的内容*/
+.submit-application-form{
+    text-align: left;
+    padding: 20px;
+}
+.submit-application-form table{
+    width: 100%;
+    border-collapse:collapse;
+}
+.submit-application-form tr>td:first-child{
+    text-align: right;
+    padding-right: 15px;
+    width: 200px;
+}
+.submit-application-error{
+    display: none;
+}
+.submit-application-form td{
+    border-top: 1px solid #F8F8F8;
+}
+.submit-application-form input, .submit-application-form textarea {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-left: 1px solid #f8f8f8;
+    height: 40px;
+    color: white;
+    padding-left: 15px;
+    width: 300px;
+    font-size: 16px;
+}
+.submit-application-form textarea{
+    height: 200px;
+    padding-top: 20px;
+    display: block;
+    resize: none;
+}
+.submit-application-form input[type='submit']{
+    margin: 10px;
+    border: 1px solid #F8F8F8;
+}

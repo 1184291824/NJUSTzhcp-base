@@ -1,0 +1,7 @@
+.myActivity-detail{
+    display: none;
+}
+.myActivity-detail>td:last-child{
+    text-align: left;
+    text-indent: 2em;
+}

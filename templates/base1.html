@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}?ver=1"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}?ver=1"/>
     <link rel="stylesheet" type="text/css" href="{% static "css/application.css" %}?ver=1"/>
+    {% block link %}
+    {% endblock %}
 </head>
 <body>
     <header>
@@ -55,17 +57,17 @@
                     <img src="{% static 'img/index/申请.png' %}" class="menu-left-option-img" alt="提交申请">
 					提交申请
 				</a>
-				<a id="menu-left-option-3" class="box menu-left-option">
+				<a href="{% url 'zhcp:myApplication' %}" id="menu-left-option-3" class="box menu-left-option">
                     <img src="{% static 'img/index/我的申请.png' %}" class="menu-left-option-img" alt="我的申请">
 					我的申请
 				</a>
-				<a id="menu-left-option-4" class="box menu-left-option">
+				<a href="{% url 'zhcp:myActivity' %}" id="menu-left-option-4" class="box menu-left-option">
                     <img src="{% static 'img/index/我的活动.png' %}" class="menu-left-option-img" alt="我的活动">
 					我的活动
 				</a>
 				<a id="menu-left-option-5" class="box menu-left-option">
                     <img src="{% static 'img/index/审批申请.png' %}" class="menu-left-option-img" alt="申请审核">
-					申请审核
+					审核申请
 				</a>
 				<a id="menu-left-option-6" class="box menu-left-option">
                     <img src="{% static 'img/index/活动.png' %}" class="menu-left-option-img" alt="提交活动">

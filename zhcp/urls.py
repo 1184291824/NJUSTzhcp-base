@@ -20,6 +20,9 @@ urlpatterns = [
     path('myScore/', views.my_score, name='myScore'),
     path('submitApplication/', views.submit_application, name='submitApplication'),
     path('verificationCode/check/', views.verification_code_check_application, ),
-    path('submitApplication/add/', views.submit_application_add, name='submitApplicationAdd')
+    path('submitApplication/add/', views.submit_application_add, name='submitApplicationAdd'),
+    path('submitApplication/success/', views.submit_application_success, name='submitApplicationSuccess'),
+    path('myApplication/', views.my_application, name='myApplication'),
+    path('myActivity/', views.my_activity, name='myActivity'),
 
 ]

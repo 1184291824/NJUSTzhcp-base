@@ -52,10 +52,12 @@ def verification_code(request):
                 text_color[j] = 255-color[j]
             else:
                 text_color[j] = color[j]
-        draw.text((i * (width/4) + 10, 2),
+        draw.text((i * (width/4) + 10, -12),
                   rand_python[i],
                   tuple(text_color),
-                  font=ImageFont.truetype(r'C:\Windows\Fonts\BRADHITC.TTF', 50),
+                  # font=ImageFont.truetype(r'C:\Windows\Fonts\BRADHITC.TTF', 50),
+                  font=ImageFont.truetype(r'..\static\fonts\segoepr.ttf', 50),
+
                   align='center')
 
     # 3 释放画笔

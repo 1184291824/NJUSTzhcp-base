@@ -1,0 +1,62 @@
+{% extends 'base1.html' %}
+{% load staticfiles %}
+{% block title %}
+提交申请成功
+{% endblock %}
+{% block  content-title %}
+提交申请成功
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static "css/submitApplicationSuccess.css" %}?ver=1"/>
+{% endblock %}
+{% block content %}
+    <style type="text/css">
+        /* slider3样式 */
+        .success-title {
+            /*background-color: red;*/
+            margin: 6% auto;
+            margin-top: 100px;
+            text-align: center;
+        }
+        .success-title>h1{
+            margin: 10px auto;
+            font-size: 37px;
+            padding-left: 15px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .success-title>img{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .success-action{
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            left: calc(-100px + 50%);
+            border: 2px solid #F8F8F8;
+            font-size: 25px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .success-action-a{
+            text-decoration:none;
+        }
+        .success-action-a:link{
+            color: white;
+        }
+        .success-action-a:visited{
+            color: white;
+        }
+        .success-action-a:active {
+            color: white;
+        }
+    </style>
+    <div class="success-title">
+        <img src="{% static 'img/register/完成.png' %}" alt="完成">
+        <h1>提交申请成功！</h1>
+    </div>
+    <div class="success-action">
+        <a class="success-action-a" href="{% url 'zhcp:submitApplication' %}">再添加一个</a>
+    </div>
+{% endblock %}
