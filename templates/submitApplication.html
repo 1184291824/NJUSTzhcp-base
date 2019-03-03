@@ -1,0 +1,47 @@
+{% extends 'base1.html' %}
+{% block title %}
+提交申请
+{% endblock %}
+{% block  content-title %}
+提交申请
+{% endblock %}
+{% block content %}
+    <div id="submit-application-form" class="submit-application-form" style="overflow: auto">
+    <form method="post" action="{% url 'zhcp:submitApplicationAdd' %}">
+        {% csrf_token %}
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td><span>活动名称：</span></td>
+                <td><input type="text" id="application-name" name="application-name" value="" placeholder="请输入活动名称" maxlength="20" class="submit-application-input"/><span id="submit-application-error1" class="submit-application-error">活动名称不能为空</span></td>
+
+            </tr>
+            <tr>
+                <td><span>活动加分：</span></td>
+                <td><input type="number" id="score" name="score" value="" placeholder="请输入活动加分" max="100" class="submit-application-input"/><span id="submit-application-error2" class="submit-application-error">活动加分不能为空</span></td>
+
+            </tr>
+            <tr>
+                <td><span>详细信息：</span></td>
+                <td><textarea id="detail" name="detail" placeholder="请输入活动的详细信息" maxlength="300" cols="40" rows="5"></textarea></td>
+            </tr>
+            <tr>
+                <td><span>验证码：</span></td>
+                <td><input type="text" id="verificationCode" name="verificationCode" value="" placeholder="请输入验证码" maxlength="4" class="submit-application-input"/>
+                    <img id="verificationCode-img" src="{% url 'zhcp:verificationCode' %}" alt="验证码" title="请输入验证码" style="height: 40px;display:block;float: left"/>
+                    <span id="submit-application-error3" class="submit-application-error">验证码错误！</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" id="submit-application" value="提交活动申请" /></td>
+
+            </tr>
+        </table>
+{#        <span>活动名称：</span><input type="text" id="name" name="name" value="" placeholder="请输入活动名称" maxlength="20" /><br>#}
+{#        <span>活动加分：</span><input type="number" id="score" name="score" value="" placeholder="请输入活动加分" max="100" /><br>#}
+{#        <span>详细信息：</span><textarea id="name" name="name" placeholder="请输入活动的详细信息" maxlength="300" cols="40" rows="5"></textarea><br>#}
+{#        <input type="submit" id="submit-application" value="提交活动申请" />#}
+
+    </form>
+
+    </div>
+{% endblock %}

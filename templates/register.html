@@ -88,7 +88,7 @@
 						<h1>完善用户信息</h1>
 						<div id="slider2-register-form">
 							<form action="#" method="post">
-								<!-- {% csrf_token %} -->
+                                {% csrf_token %}
 								<span>姓名：</span><input type="text" name="name" id="name" class="slider2-input" value="" placeholder="请输入姓名" maxlength="20"/><br>
                                 <span>验证码：</span><input type="text" name="VerificationCode" id="VerificationCode" class="slider2-input" value="" placeholder="请输入验证码" maxlength="4"/><br>
 								<input id="slider2-submit" type="submit" value="确认" />

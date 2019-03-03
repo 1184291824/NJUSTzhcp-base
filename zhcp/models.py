@@ -25,6 +25,13 @@ class Users(models.Model):
 
     @classmethod
     def add_user(cls, student_id, password, name, ):
+        """
+
+        :param student_id: 用户id
+        :param password: 用户密码
+        :param name: 用户姓名
+        :return: user对象
+        """
         user = cls(student_id=student_id, password=password, name=name)
         return user
 
@@ -57,6 +64,11 @@ class Application(models.Model):
     status = models.BooleanField(default=False)
     captain_id = models.CharField(max_length=12, blank=True)
     create_time = models.DateTimeField(auto_now_add=True)
+
+    @classmethod
+    def add_application(cls, student_id, name, detail, score):
+        application = cls(student_id=student_id, name=name, detail=detail, score=score)
+        return application
 
     def __str__(self):
         return self.name

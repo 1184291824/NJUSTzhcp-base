@@ -136,7 +136,7 @@ $(document).ready(function(){
 	//给slider2-img添加点击事件
 	$('#verificationCode').click(function () {
         // this.src="/Day14_jsp/Code?"+new Date().getTime();
-		this.src="verificationCode/?"+new Date().getTime();
+		this.src="../verificationCode/?"+new Date().getTime();
 	});
 
 	//给slider2中的input添加值改变事件
@@ -176,6 +176,7 @@ $(document).ready(function(){
 					$("#slider2-note-errors h1").text("验证码错误");
 					input_VerificationCode.css("border", "1px solid red");
 					input_VerificationCode.focus();
+					$('#verificationCode')[0].src="../verificationCode/?"+new Date().getTime();
 				}
 			},
 		})

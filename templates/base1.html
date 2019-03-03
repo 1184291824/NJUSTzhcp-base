@@ -43,11 +43,15 @@
                 <div id="title" class="box title">
                     我的菜单
                 </div>
+                <a href="{% url 'zhcp:index' %}" id="menu-left-option-7" class="box menu-left-option">
+                    <img src="{% static 'img/index/主页.png' %}" class="menu-left-option-img" alt="主页">
+					返回主页
+				</a>
 				<a href="{% url 'zhcp:myScore' %}" id="menu-left-option-1" class="box menu-left-option">
                     <img src="{% static 'img/index/成绩.png' %}" class="menu-left-option-img" alt="我的加分">
 					我的加分
 				</a>
-				<a id="menu-left-option-2" class="box menu-left-option">
+				<a href="{% url 'zhcp:submitApplication' %}" id="menu-left-option-2" class="box menu-left-option">
                     <img src="{% static 'img/index/申请.png' %}" class="menu-left-option-img" alt="提交申请">
 					提交申请
 				</a>
@@ -68,7 +72,7 @@
 					提交活动
 				</a>
 			</div>
-            <div id="content" class="box content" style="overflow: auto">
+            <div id="content" class="box content">
                 <div class="box title">
                     {% block  content-title %}
                     我的菜单

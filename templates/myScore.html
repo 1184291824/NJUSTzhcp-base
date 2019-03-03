@@ -6,20 +6,37 @@
 我的加分
 {% endblock %}
 {% block content %}
-<table>
-    <tr>
-        <th>名称</th>
-        <th>加分</th>
-        <th>提交时间</th>
-    </tr>
-
-{% for application in application_list %}
-    <tr>
-        <td>{{ application.name }}</td>
-        <td>{{ application.score }}</td>
-        <td>{{ application.create_time }}</td>
-    </tr>
-{% endfor %}
-
-</table>
+    <div id="myScore-table" class="myScore-table" style="overflow: auto">
+        <table border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>提交时间</th>
+                    <th>加分</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for application in application_list %}
+                <tr>
+                    <td>{{ application.name }}</td>
+                    <td>{{ application.create_time }}</td>
+                    <td>{{ application.score }}</td>
+                </tr>
+            {% endfor %}
+            {% for activity in activity_list %}
+                <tr>
+                    <td>{{ activity.name }}</td>
+                    <td>{{ activity.create_time }}</td>
+                    <td>{{ activity.score }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2">总分</td>
+                    <td>{{ user.score_sum }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 {% endblock %}

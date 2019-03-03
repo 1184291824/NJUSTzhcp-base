@@ -7,7 +7,7 @@ from django.contrib.auth import logout
 
 # 测试
 def test(request):
-    return render(request, 'myScore.html')
+    return HttpResponse(request.META.get("HTTP_REFERER"))
 
 
 # 更新总分
@@ -135,6 +135,21 @@ def verification_code_check(request):
         return HttpResponse('false')
 
 
+def verification_code_check_application(request):
+    """
+    检查输入的验证码是否正确
+    :param request:
+    :return:
+    """
+    code = request.POST.get('code', '1')
+    right_code = request.session['verification_code']
+
+    if code.upper() == right_code.upper():  # 大小写不计，所以都改成大写
+        return HttpResponse('true')
+    else:
+        return HttpResponse('false')
+
+
 def logout_view(request):
     logout(request)
     return redirect('zhcp:index')
@@ -154,7 +169,7 @@ def my_score(request):
     if login_status == 1:
         student_id = request.session.get('student_id', 'None')
         user = Users.objects.get(student_id__exact=student_id)
-        application_list = Application.objects.filter(student_id__student_id__exact=student_id)
+        application_list = Application.objects.filter(student_id__student_id__exact=student_id, status__exact=True)
         activity_list = Activity.objects.filter(student_id__student_id__exact=student_id)
         return render(request, 'myScore.html', {
             'user': user,
@@ -164,3 +179,44 @@ def my_score(request):
     else:
         return redirect('zhcp:login')
 
+
+def submit_application(request):
+    """
+    返回“提交申请界面”
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        student_id = request.session.get('student_id', 'None')
+        user = Users.objects.get(student_id__exact=student_id)
+        return render(request, 'submitApplication.html', {
+            'user': user,
+        })
+    else:
+        return redirect('zhcp:login')
+
+
+def submit_application_add(request):
+    """
+    提交表单成功，增加一个Application的对象
+    :param request:
+    :return:
+    """
+    if request.method == 'POST':
+        stu_id = request.session['student_id']
+        student_id = Users.objects.get(student_id__exact=stu_id)
+        name = request.POST.get('application-name')
+        score = request.POST.get('score')
+        detail = request.POST.get('detail')
+        new_application = Application.add_application(
+            student_id=student_id,
+            name=name,
+            score=score,
+            detail=detail,
+        )
+        new_application.save()
+        return HttpResponse('true')
+    else:
+        return render(request, 'login.html')

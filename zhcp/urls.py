@@ -11,12 +11,15 @@ urlpatterns = [
 
     path('register/', views.register, name='register'),
     path('register/check/', views.register_check, name='registerCheck'),
-    path('register/verificationCode/', VerificationCode.verification_code, name='verificationCode'),
+    path('verificationCode/', VerificationCode.verification_code, name='verificationCode'),
     path('register/verificationCode/check/', views.verification_code_check, name='verificationCodeCheck'),
 
     path('index/', views.index, name='index'),
     path('logout/', views.logout_view, name='logout'),
 
     path('myScore/', views.my_score, name='myScore'),
+    path('submitApplication/', views.submit_application, name='submitApplication'),
+    path('verificationCode/check/', views.verification_code_check_application, ),
+    path('submitApplication/add/', views.submit_application_add, name='submitApplicationAdd')
 
 ]
