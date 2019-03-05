@@ -24,5 +24,7 @@ urlpatterns = [
     path('submitApplication/success/', views.submit_application_success, name='submitApplicationSuccess'),
     path('myApplication/', views.my_application, name='myApplication'),
     path('myActivity/', views.my_activity, name='myActivity'),
+    path('reviewApplication/', views.review_application, name='reviewApplication'),
+
 
 ]

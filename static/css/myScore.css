@@ -1,7 +1,7 @@
 /*myScore中的内容*/
 .myScore-table{
     width: 100%;
-    height: calc(100% - 80px);
+    height: calc(100% - 40px);
     /*background-color: red;*/
     text-align: center;
 }

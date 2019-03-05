@@ -65,7 +65,7 @@
                     <img src="{% static 'img/index/我的活动.png' %}" class="menu-left-option-img" alt="我的活动">
 					我的活动
 				</a>
-				<a id="menu-left-option-5" class="box menu-left-option">
+				<a {% if user.identity == 'teacher' or user.identity == 'captain' %}href="{% url 'zhcp:reviewApplication' %}"{% endif %} id="menu-left-option-5" class="box menu-left-option">
                     <img src="{% static 'img/index/审批申请.png' %}" class="menu-left-option-img" alt="申请审核">
 					审核申请
 				</a>

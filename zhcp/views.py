@@ -8,7 +8,7 @@ from django.contrib.auth import logout
 # 测试
 def test(request):
     user = Users.objects.get(pk=1)
-    return HttpResponse(user)
+    return HttpResponse(user.pk)
 
 
 # 更新总分
@@ -271,6 +271,11 @@ def my_application(request):
 
 
 def my_activity(request):
+    """
+    返回我的活动界面
+    :param request:
+    :return:
+    """
     login_status = request.session.get('login_status', 0)
 
     if login_status == 1:
@@ -282,6 +287,34 @@ def my_activity(request):
         return render(request, 'myActivity.html', {
             'user': user,
             'activity_list': activity_list,
+        })
+    else:
+        return redirect('zhcp:login')
+
+
+def review_application(request):
+    """
+    返回申请审核界面
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        student_id = request.session.get('student_id', 'None')
+        user = Users.objects.get(student_id__exact=student_id)
+        if user.identity == 'student':
+            return redirect('zhcp:index')
+        application_list_without_apply = Application.objects.filter(
+            captain_id__isnull=True
+        )
+        application_list_applied = Application.objects.filter(
+            captain_id__exact=student_id
+        )
+        return render(request, 'reviewApplication.html', {
+            'user': user,
+            'application_list_without_apply': application_list_without_apply,
+            'application_list_applied': application_list_applied,
         })
     else:
         return redirect('zhcp:login')

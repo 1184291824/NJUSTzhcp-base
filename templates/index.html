@@ -87,7 +87,7 @@
 					</div>
 					<span>我的活动</span>
 				</a>
-				<a id="menu-option-5" class="box menu-option">
+				<a {% if identity == 'teacher' or identity == 'captain' %}href="{% url 'zhcp:reviewApplication' %}"{% endif %} id="menu-option-5" class="box menu-option">
 					<div>
 						<img src="{% static 'img/index/审批申请.png' %}" class="menu-option-img" alt="申请审核">
 					</div>

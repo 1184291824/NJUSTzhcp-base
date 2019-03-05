@@ -5,3 +5,22 @@
     text-align: left;
     text-indent: 2em;
 }
+
+
+/*因为在reviewApplication.html文件中也引用了这个CSS文件，
+所以下边设置reviewApplication的样式属性*/
+.reviewApplication-title{
+    width: 50%;
+    float: left;
+}
+.reviewApplication-title-bar{
+    width: 4em;
+    height: 3px;
+    background-color: #f8f8f8;
+    position: absolute;
+    bottom: 3px;
+    left: calc(-2em + 25%);
+}
+#reviewApplication-tbody-2{
+    display: none;
+}
