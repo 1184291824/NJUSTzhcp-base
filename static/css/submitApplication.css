@@ -37,4 +37,5 @@
 .submit-application-form input[type='submit']{
     margin: 10px;
     border: 1px solid #F8F8F8;
+    padding: 0;
 }

@@ -66,6 +66,7 @@ class Application(models.Model):
     captain_id = models.CharField(max_length=12, blank=True, null=True)
     # captain_id = models.ForeignKey(Users, on_delete=models.CASCADE, blank=True, null=True)
     create_time = models.DateTimeField(auto_now_add=True)
+    change_time = models.DateTimeField(auto_now=True)
 
     @classmethod
     def add_application(cls, student_id, name, detail, score):

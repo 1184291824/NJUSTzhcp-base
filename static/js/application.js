@@ -92,11 +92,10 @@ $(document).ready(function(){
 
 
 	//reviewApplication页面
-	let reviewApplication_title_1 = $('#reviewApplication-title-1');
-	let reviewApplication_title_2 = $('#reviewApplication-title-2');
 	let reviewApplication_title = $('.reviewApplication-title');
 	let reviewApplication_title_bar = $('.reviewApplication-title-bar');
-	let reviewApplication_title_bar_left = reviewApplication_title_bar.position().left;
+	let reviewApplication_title_bar_left = reviewApplication_title_bar.position.left;
+	let reviewApplication_input = $('#reviewApplication-input');
 	//给标题栏添加效果
 
 	reviewApplication_title.bind({
@@ -119,6 +118,50 @@ $(document).ready(function(){
 			if ($('#'+reviewApplication_tbody_id).find('td').length === 0){
 				$('#'+reviewApplication_tbody_id).html("<tr><td colspan='5'><h1>您还未审批过任何申请！</h1></td></tr>");
 			}
+		}
+	});
+
+	reviewApplication_input.click(function () {
+		$.ajax({
+			url: '../submit/',
+			type: 'POST',
+			data: {
+				'pk': $('#application-pk').text(),
+				'status': $('#reviewApplication-review').attr('value'),
+			},
+			success: function (result) {
+				console.log(result);
+				reviewApplication_input.css('background-color','green');
+			}
+		})
+	});
+
+
+
+});
+
+
+//UISwitch部分
+$(document).ready(function(){
+	let switch_num = false;
+	$("#switchBase").click(function(){
+		if(switch_num === false){
+			$("#switchThumb").animate({left:"21px"},"fast");
+			$("#switchBase").css({
+				"background-color":"#00ff00",
+				"border-color":"#00ff00"});
+			switch_num = true;
+			$('#reviewApplication-review').attr('value','True');
+			$('#reviewApplication-review').text('允许申请');
+		}
+		else{
+			$("#switchThumb").animate({left:"0"},"fast");
+			$("#switchBase").css({
+				"background-color":"rgba(0,0,0,0)",
+				"border-color":"darkgray"});
+			switch_num = false;
+			$('#reviewApplication-review').attr('value','False');
+			$('#reviewApplication-review').text('拒绝申请');
 		}
 	});
 });

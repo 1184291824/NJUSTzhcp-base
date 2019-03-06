@@ -318,3 +318,57 @@ def review_application(request):
         })
     else:
         return redirect('zhcp:login')
+
+
+def review_application_detail(request):
+    """
+    返回申请详情界面
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        student_id = request.session.get('student_id', 'None')
+        application_pk = request.GET.get('pk')
+        user = Users.objects.get(student_id__exact=student_id)
+        if user.identity == 'student':
+            return redirect('zhcp:index')
+        try:
+            application = Application.objects.get(
+                pk=int(application_pk)
+            )
+        except Application.DoesNotExist:
+            return redirect('zhcp:reviewApplication')
+        return render(request, 'reviewApplicationDetail.html', {
+            'user': user,
+            'application': application,
+        })
+    else:
+        return redirect('zhcp:login')
+
+
+def review_application_submit(request):
+    """
+    审核结果的提交
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        if request.method == 'POST':
+            pk = request.POST.get('pk')
+            status = request.POST.get('status')
+            application = Application.objects.get(pk=int(pk))
+            if status == 'True':
+                application.status = True
+            else:
+                application.status = False
+            application.captain_id = request.session.get('student_id')
+            application.save()
+            return HttpResponse('success')
+        else:
+            return redirect('zhcp:index')
+    else:
+        return redirect('zhcp:login')

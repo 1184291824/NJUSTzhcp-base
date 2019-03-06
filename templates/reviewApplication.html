@@ -25,6 +25,7 @@
                     <th>申请人</th>
                     <th>提交时间</th>
                     <th>加分</th>
+                    <th>目前状态</th>
                     <th>操作</th>
                 </tr>
             </thead>
@@ -35,7 +36,8 @@
                     <td>{{ foo.student_id.student_id }}--{{ foo.student_id.name }}</td>
                     <td>{{ foo.create_time }}</td>
                     <td>{{ foo.score }}</td>
-                    <td><a href="">查看详细信息</a></td>
+                    <td>未审核</td>
+                    <td><a href="{% url 'zhcp:reviewApplicationDetail' %}?pk={{ foo.pk }}">查看详细信息</a></td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -44,8 +46,10 @@
                 <tr>
                     <td>{{ foo.name }}</td>
                     <td>{{ foo.student_id.student_id }}--{{ foo.student_id.name }}</td>
-                    <td>{{ foo.create_time }}</td>
+                    <td>{{ foo.change_time }}</td>
                     <td>{{ foo.score }}</td>
+                    {% if foo.status == True %}<td style="color: lawngreen">审核通过</td>{% elif foo.status == False %}<td style="color: red">审核未通过</td>{% endif %}
+                    <td><a href="{% url 'zhcp:reviewApplicationDetail' %}?pk={{ foo.pk }}">修改</a></td>
                 </tr>
             {% endfor %}
             </tbody>
