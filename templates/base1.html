@@ -69,7 +69,7 @@
                     <img src="{% static 'img/index/审批申请.png' %}" class="menu-left-option-img" alt="申请审核">
 					审核申请
 				</a>
-				<a id="menu-left-option-6" class="box menu-left-option">
+				<a {% if user.identity == 'teacher' or user.identity == 'captain' %}href="{% url 'zhcp:submitActivity' %}"{% endif %} id="menu-left-option-6" class="box menu-left-option">
                     <img src="{% static 'img/index/活动.png' %}" class="menu-left-option-img" alt="提交活动">
 					提交活动
 				</a>
@@ -95,5 +95,7 @@
     <script src="{% static "js/Ajax-csrf.js" %}" type="text/javascript" charset="utf-8"></script>
     <script src="{% static "js/index.js" %}" type="text/javascript" charset="utf-8"></script>
     <script src="{% static "js/application.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
+{% block script %}
+{% endblock %}
 </body>
 </html>

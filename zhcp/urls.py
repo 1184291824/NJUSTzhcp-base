@@ -5,6 +5,7 @@ app_name = "zhcp"
 
 urlpatterns = [
     path('test/', views.test, name='test'),
+    path('refresh/', views.refresh_score_sum, name='refresh'),
 
     path('login/', views.login, name='login'),
     path('login/check/', views.login_check, name='loginCheck'),
@@ -27,6 +28,9 @@ urlpatterns = [
     path('reviewApplication/', views.review_application, name='reviewApplication'),
     path('reviewApplication/detail/', views.review_application_detail, name='reviewApplicationDetail'),
     path('reviewApplication/submit/', views.review_application_submit, name='reviewApplicationSubmit'),
+    path('submitActivity/', views.submit_activity, name='submitActivity'),
+    path('submitActivity/add', views.submit_activity_add, name='submitActivityAdd'),
+    path('submitActivity/success/', views.submit_activity_success, name='submitActivitySuccess'),
 
 
 ]

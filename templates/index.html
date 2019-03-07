@@ -93,7 +93,7 @@
 					</div>
 					<span>审核申请</span>
 				</a>
-				<a id="menu-option-6" class="box menu-option">
+				<a {% if identity == 'teacher' %}href="{% url 'zhcp:submitActivity' %}"{% endif %} id="menu-option-6" class="box menu-option">
 					<div>
 						<img src="{% static 'img/index/活动.png' %}" class="menu-option-img" alt="提交活动">
 					</div>

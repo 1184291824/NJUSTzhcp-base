@@ -1,22 +1,36 @@
 {% extends 'base1.html' %}
 {% load staticfiles %}
 {% block title %}
-提交申请
+提交活动
 {% endblock %}
 {% block  content-title %}
-提交申请
+提交活动
 {% endblock %}
 {% block link %}
-<link rel="stylesheet" type="text/css" href="{% static "css/submitApplication.css" %}?ver=1"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/submitApplication.css" %}?ver=1"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/chosen.css" %}?ver=1"/>
 {% endblock %}
 {% block content %}
     <div id="submit-application-form" class="submit-application-form" style="overflow: auto">
-    <form method="post" action="{% url 'zhcp:submitApplicationAdd' %}">
+    <form method="post" action="{% url 'zhcp:submitActivityAdd' %}">
         {% csrf_token %}
         <table border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td><span>活动名称：</span></td>
                 <td><input type="text" id="application-name" name="application-name" value="" placeholder="请输入活动名称" maxlength="20" class="submit-application-input"/><span id="submit-application-error1" class="submit-application-error">活动名称不能为空</span></td>
+
+            </tr>
+            <tr>
+                <td><span>参与人员：</span></td>
+                <td>
+                    <select name="users" style="width:150px;" id="users" class="users-select" data-placeholder="请选择参与人员" multiple>
+                        {% for foo in user_list %}
+                            <option value="{{ foo.pk }}">{{ foo.student_id }}:{{ foo.name }}</option>
+                        {% endfor %}
+
+                    </select>
+                    <span id="submit-application-error1" class="submit-application-error">活动人员不能为空</span>
+                </td>
 
             </tr>
             <tr>
@@ -36,13 +50,17 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" id="submit-application" value="提交活动申请" /></td>
+                <td colspan="2"><input type="submit" id="submit-application" value="提交该活动" /></td>
 
             </tr>
         </table>
     </form>
+
     </div>
 {% endblock %}
 {% block script %}
-    <script src="{% static "js/submitApplication.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/chosen.jquery.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/submitActivity.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
+
+
 {% endblock %}

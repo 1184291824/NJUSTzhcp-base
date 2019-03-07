@@ -7,8 +7,19 @@ from django.contrib.auth import logout
 
 # 测试
 def test(request):
-    user = Users.objects.get(pk=1)
-    return HttpResponse(user.pk)
+    stu_id = request.session['student_id']
+    create_by = Users.objects.get(student_id__exact=stu_id)
+    name = request.POST.get('application-name')
+    score = request.POST.get('score')
+    detail = request.POST.get('detail')
+    value = request.POST.getlist('users')
+    student_list = []
+    for v in value:
+        student_list.append(Users.objects.get(pk=v))
+    active = Activity.objects.create(name=name, score=score, detail=detail)
+    active.student_id.add(*student_list)
+    active.create_by.add(create_by)
+    return HttpResponse(active)
 
 
 # 更新总分
@@ -17,19 +28,24 @@ def refresh_score_sum(request):
     :param request: 网站请求
     :return: HttpResponse
     """
-    student_id = request.GET.get("id")  # 使用GET方法取到用户的id,后期应改成POST
-    user = Users.objects.filter(student_id__exact=student_id)[0]  # 取到id对应的users对象user
-    application_list = Application.objects.filter(status=True, student_id__exact=user)  # 取到该对象申请的，且已经审核过的，申请列表
-    activity_list = Activity.objects.filter(student_id__exact=user)  # 取到包含该对象的活动列表
-    user.score_sum = 0  # 令该对象的总分归零，然后求和
-    for application in application_list:
-        user.score_sum += application.score
-    for activity in activity_list:
-        user.score_sum += activity.score
+    login_status = request.session.get('login_status', 0)
 
-    user.save()  # 保存这个对象
+    if login_status == 1:
+        student_id = request.GET.get("id")  # 使用GET方法取到用户的id,后期应改成POST
+        user = Users.objects.filter(student_id__exact=student_id)[0]  # 取到id对应的users对象user
+        application_list = Application.objects.filter(status=True, student_id__exact=user)  # 取到该对象申请的，且已经审核过的，申请列表
+        activity_list = Activity.objects.filter(student_id__exact=user)  # 取到包含该对象的活动列表
+        user.score_sum = 0  # 令该对象的总分归零，然后求和
+        for application in application_list:
+            user.score_sum += application.score
+        for activity in activity_list:
+            user.score_sum += activity.score
 
-    return HttpResponse(user.score_sum)  # 返回
+        user.save()  # 保存这个对象
+
+        return redirect('zhcp:myScore')  # 返回
+    else:
+        return redirect('zhcp:login')
 
 
 def index(request):
@@ -207,22 +223,27 @@ def submit_application_add(request):
     :param request:
     :return:
     """
-    if request.method == 'POST':
-        stu_id = request.session['student_id']
-        student_id = Users.objects.get(student_id__exact=stu_id)
-        name = request.POST.get('application-name')
-        score = request.POST.get('score')
-        detail = request.POST.get('detail')
-        new_application = Application.add_application(
-            student_id=student_id,
-            name=name,
-            score=score,
-            detail=detail,
-        )
-        new_application.save()
-        return redirect('zhcp:submitApplicationSuccess')
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        if request.method == 'POST':
+            stu_id = request.session['student_id']
+            student_id = Users.objects.get(student_id__exact=stu_id)
+            name = request.POST.get('application-name')
+            score = request.POST.get('score')
+            detail = request.POST.get('detail')
+            new_application = Application.add_application(
+                student_id=student_id,
+                name=name,
+                score=score,
+                detail=detail,
+            )
+            new_application.save()
+            return redirect('zhcp:submitApplicationSuccess')
+        else:
+            return redirect('zhcp:index')
     else:
-        return redirect('zhcp:index')
+        return redirect('zhcp:login')
 
 
 def submit_application_success(request):
@@ -234,7 +255,11 @@ def submit_application_success(request):
     login_status = request.session.get('login_status', 0)
 
     if login_status == 1:
-        return render(request, 'submitApplicationSuccess.html')
+        student_id = request.session.get('student_id')
+        user = Users.objects.get(student_id__exact=student_id)
+        return render(request, 'submitApplicationSuccess.html', {
+            'user': user,
+        })
     else:
         return redirect('zhcp:login')
 
@@ -260,7 +285,7 @@ def my_application(request):
             status__exact=False,
             captain_id__isnull=False,
         )
-        return render(request, 'myApplication.html', {
+        return render(request, 'myApplication2.html', {
             'user': user,
             'without_apply': without_apply,
             'success': success,
@@ -310,7 +335,7 @@ def review_application(request):
         )
         application_list_applied = Application.objects.filter(
             captain_id__exact=student_id
-        )
+        ).order_by('-change_time')
         return render(request, 'reviewApplication.html', {
             'user': user,
             'application_list_without_apply': application_list_without_apply,
@@ -372,3 +397,74 @@ def review_application_submit(request):
             return redirect('zhcp:index')
     else:
         return redirect('zhcp:login')
+
+
+def submit_activity(request):
+    """
+    返回“提交活动界面”
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        student_id = request.session.get('student_id', 'None')
+        user = Users.objects.get(student_id__exact=student_id)
+        user_list = Users.objects.all()
+        if user.identity != 'teacher':
+            return redirect('zhcp:index')
+        return render(request, 'submitActivity.html', {
+            'user': user,
+            'user_list': user_list,
+        })
+    else:
+        return redirect('zhcp:login')
+
+
+def submit_activity_add(request):
+    """
+    提交表单成功，增加一个Application的对象
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        if request.method == 'POST':
+            stu_id = request.session['student_id']
+            create_by = Users.objects.get(student_id__exact=stu_id)
+            name = request.POST.get('application-name')
+            score = request.POST.get('score')
+            detail = request.POST.get('detail')
+            value = request.POST.getlist('users')
+            student_list = []
+            for v in value:
+                student_list.append(Users.objects.get(pk=v))
+            active = Activity.objects.create(name=name, score=score, detail=detail)
+            active.student_id.add(*student_list)
+            active.create_by.add(create_by)
+
+            return redirect('zhcp:submitActivitySuccess')
+        else:
+            return redirect('zhcp:index')
+    else:
+        return redirect('zhcp:login')
+
+
+def submit_activity_success(request):
+    """
+    当提交表单成功后，会重定向到这个函数，返回成功的HTML
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        student_id = request.session.get('student_id')
+        user = Users.objects.get(student_id__exact=student_id)
+        return render(request, 'submitActivitySuccess.html', {
+            'user': user,
+        })
+    else:
+        return redirect('zhcp:login')
+
