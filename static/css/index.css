@@ -16,6 +16,11 @@
     margin: 0 10px;
 }
 
+/* 背景颜色 */
+body{
+	background-image: url(../img/login/loginBackground2.png);
+}
+
 /* 主界面 */
 .main{
     margin: 50px 50px;

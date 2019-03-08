@@ -23,29 +23,29 @@ def test(request):
 
 
 # 更新总分
-def refresh_score_sum(request):
+def refresh_score_sum(user):
     """更新总分
-    :param request: 网站请求
+    :param user: 用户对象
     :return: HttpResponse
     """
-    login_status = request.session.get('login_status', 0)
+    # login_status = request.session.get('login_status', 0)
 
-    if login_status == 1:
-        student_id = request.GET.get("id")  # 使用GET方法取到用户的id,后期应改成POST
-        user = Users.objects.filter(student_id__exact=student_id)[0]  # 取到id对应的users对象user
-        application_list = Application.objects.filter(status=True, student_id__exact=user)  # 取到该对象申请的，且已经审核过的，申请列表
-        activity_list = Activity.objects.filter(student_id__exact=user)  # 取到包含该对象的活动列表
-        user.score_sum = 0  # 令该对象的总分归零，然后求和
-        for application in application_list:
-            user.score_sum += application.score
-        for activity in activity_list:
-            user.score_sum += activity.score
+    # if login_status == 1:
+    #     student_id = request.GET.get("id")  # 使用GET方法取到用户的id,后期应改成POST
+    # user = Users.objects.filter(student_id__exact=student_id)[0]  # 取到id对应的users对象user
+    application_list = Application.objects.filter(status=True, student_id__exact=user)  # 取到该对象申请的，且已经审核过的，申请列表
+    activity_list = Activity.objects.filter(student_id__exact=user)  # 取到包含该对象的活动列表
+    user.score_sum = 0  # 令该对象的总分归零，然后求和
+    for application in application_list:
+        user.score_sum += application.score
+    for activity in activity_list:
+        user.score_sum += activity.score
 
-        user.save()  # 保存这个对象
+    user.save()  # 保存这个对象
 
-        return redirect('zhcp:myScore')  # 返回
-    else:
-        return redirect('zhcp:login')
+    # return redirect('zhcp:myScore')  # 返回
+    # else:
+    #     return redirect('zhcp:login')
 
 
 def index(request):
@@ -60,6 +60,7 @@ def index(request):
         # request.session['login_status'] = 0  # 为了测试将登录状态置0
         student_id = request.session.get('student_id', 'None')
         user = Users.objects.get(student_id__exact=student_id)
+        refresh_score_sum(user=user)  # 更新总分
         name = user.name
         identity = user.identity
         score_sum = user.score_sum
@@ -186,6 +187,7 @@ def my_score(request):
     if login_status == 1:
         student_id = request.session.get('student_id', 'None')
         user = Users.objects.get(student_id__exact=student_id)
+        refresh_score_sum(user=user)  # 更新总分
         application_list = Application.objects.filter(student_id__exact=user, status__exact=True)
         activity_list = Activity.objects.filter(
             student_id__exact=user,
@@ -467,4 +469,3 @@ def submit_activity_success(request):
         })
     else:
         return redirect('zhcp:login')
-
