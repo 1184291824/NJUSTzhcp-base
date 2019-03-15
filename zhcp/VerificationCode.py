@@ -2,6 +2,7 @@ from PIL import Image, ImageDraw, ImageFont  # 引入绘图模块
 import random  # 引入随机函数模块
 from django.shortcuts import render, HttpResponse
 from io import BytesIO  # 在内存中创建
+from NJUSTzhcp.settings import PythonAnywhere
 
 
 def get_random_color():
@@ -46,16 +47,20 @@ def verification_code(request):
         rand_python += random.choice([random_number, random_lower_letter, random_upper_letter, ])
         color = get_random_color()
         text_color = [0, 0, 0]
-        #
         for j in range(2):
             if color[j]-background_color[j] <= 80:
                 text_color[j] = 255-color[j]
             else:
                 text_color[j] = color[j]
+
+        if PythonAnywhere is False:
+            truetype_str = 'segoepr.ttf'
+        else:
+            truetype_str = '/home/mzx/NJUSTzhcp-base/static/fonts/segoepr.ttf'
         draw.text((i * (width/4) + 10, -12),
                   rand_python[i],
                   tuple(text_color),
-                  font=ImageFont.truetype('segoepr.ttf', 50),
+                  font=ImageFont.truetype(truetype_str, 50),
                   # font=ImageFont.truetype('/home/mzx/NJUSTzhcp-base/static/fonts/segoepr.ttf', 50),
                   align='center')
 

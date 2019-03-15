@@ -7,19 +7,7 @@ from django.contrib.auth import logout
 
 # 测试
 def test(request):
-    stu_id = request.session['student_id']
-    create_by = Users.objects.get(student_id__exact=stu_id)
-    name = request.POST.get('application-name')
-    score = request.POST.get('score')
-    detail = request.POST.get('detail')
-    value = request.POST.getlist('users')
-    student_list = []
-    for v in value:
-        student_list.append(Users.objects.get(pk=v))
-    active = Activity.objects.create(name=name, score=score, detail=detail)
-    active.student_id.add(*student_list)
-    active.create_by.add(create_by)
-    return HttpResponse(active)
+    return render(request, 'mobile/login.html')
 
 
 # 更新总分

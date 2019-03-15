@@ -1,0 +1,23 @@
+.login-h1{
+    margin: 0 auto;
+    text-align: center;
+    color: gray;
+}
+.login-from{
+    margin: 20px 40px;
+}
+.mui-input-row{
+    margin: 10px 0;
+    background-color: white;
+    border-radius: 10px;
+}
+.mui-input-row input{
+    height: 46px;
+    line-height: 46px;
+}
+.mui-btn{
+    margin: 20px 0;
+    height: 46px;
+    width: 100%;
+    border-radius: 10px;
+}

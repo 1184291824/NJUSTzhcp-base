@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>{% block title %}{% endblock %}</title>
+    <script src="{% static 'mui/js/mui.min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <link href="{% static 'mui/css/mui.min.css' %}" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<header class="mui-bar mui-bar-nav">
+	<h1 class="mui-title">{% block header %}{% endblock %}</h1>
+</header>
+<body>
+	<div class="mui-content">
+		{% block body %}
+        {% endblock %}
+	</div>
+</body>
+<footer>
+    {% block footer %}
+    {% endblock %}
+</footer>
+</html>

@@ -23,13 +23,35 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6*ta*41avxwlj65i%ubtx&2r%l%@*e3%qog#1l3mwmqm^mx+*r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+PythonAnywhere = False  # 设为False是为了本地支持
+# PythonAnywhere = True  # 设为True是为了上线PythonAnywhere支持
 
-# DEBUG = False
-#
-# ALLOWED_HOSTS = ['mzx.pythonanywhere.com']
+if PythonAnywhere is False:
+    DEBUG = True
+    ALLOWED_HOSTS = []
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': "zhcp",
+            'USER': 'root',
+            'PASSWORD': '951753',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+elif PythonAnywhere is True:
+    DEBUG = False
+    ALLOWED_HOSTS = ['mzx.pythonanywhere.com']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': "mzx$zhcp",
+            'USER': 'mzx',
+            'PASSWORD': '86110339mzx',
+            'HOST': 'mzx.mysql.pythonanywhere-services.com',
+        }
+    }
 
 
 # Application definition
@@ -79,28 +101,16 @@ WSGI_APPLICATION = 'NJUSTzhcp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': "zhcp",
-        'USER': 'root',
-        'PASSWORD': '951753',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': "mzx$zhcp",
-#         'USER': 'mzx',
-#         'PASSWORD': '86110339mzx',
-#         'HOST': 'mzx.mysql.pythonanywhere-services.com',
+#         'NAME': "zhcp",
+#         'USER': 'root',
+#         'PASSWORD': '951753',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
 #     }
 # }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
