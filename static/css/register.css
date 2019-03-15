@@ -185,8 +185,9 @@
 	outline: none;
 	color: white;
 }
+
 #slider2-register-form input[type='submit'] {
-    margin-top: 90px;
+    margin-top: 50px;
     background-color: plum;
     text-indent: 0;
     width: calc(60px + 73%);

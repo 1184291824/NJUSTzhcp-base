@@ -1,3 +1,15 @@
+// $(document).ready(function () {
+// 	//chosen
+// 	jQuery(".class-id-select").chosen({
+// 		//匹配没有结果时的显示文字
+// 		no_results_text: "没有找到该班级",
+// 		width: '71%',
+// 		disable_search:false,
+// 		search_contains:true,
+// 	});
+// });
+
+
 $(document).ready(function(){
 	//滚动条
 	var mySwiper = new Swiper ('.swiper-container', {
@@ -19,7 +31,7 @@ $(document).ready(function(){
 // 			}
 // 		},
 
-		// 如果需要前进后退按钮
+		// //如果需要前进后退按钮
 		// navigation: {
 		// 	nextEl: '.swiper-button-next',
 		// 	prevEl: '.swiper-button-prev',
@@ -71,6 +83,7 @@ $(document).ready(function(){
 	var input_password = $("#password");
 	var input_password_check = $("#password_check");
 	var input_name = $('#name');
+	var input_class_id = $('#class-id');
 	var input_VerificationCode = $('#VerificationCode');
 
 	//input输入框-默认聚焦到student_id
@@ -159,12 +172,22 @@ $(document).ready(function(){
 			return 0;
 		}
 
+		//判断班级输入框是否为空
+		if (input_class_id.val()===""){
+			$("#slider2-note-errors").fadeIn(1000);
+			$("#slider2-note-errors h1").text("班级不能为空！");
+			input_class_id.css("border", "1px solid red");
+			input_class_id.focus();
+			return 0;
+		}
+
 		//判断验证码是否正确
 		$.ajax({
 			type:"POST",
 			url:"verificationCode/check/",
 			data:{
 				'name':input_name.val(),
+				'class_id': input_class_id.val(),
 				'code':input_VerificationCode.val(),
 			},
 			success: function(result){
@@ -177,6 +200,12 @@ $(document).ready(function(){
 					input_VerificationCode.css("border", "1px solid red");
 					input_VerificationCode.focus();
 					$('#verificationCode')[0].src="../verificationCode/?"+new Date().getTime();
+				}
+				else if(result==="DoesNotExist"){
+					$("#slider2-note-errors").fadeIn(1000);
+					$("#slider2-note-errors h1").text("您输入的班级不存在");
+					input_class_id.css("border", "1px solid red");
+					input_class_id.focus();
 				}
 			},
 		})
@@ -195,3 +224,6 @@ $(document).ready(function(){
 		},100);
 	});
 });
+
+
+

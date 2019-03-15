@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import Users, Activity, Application
+from .models import Users, Activity, Application, Classes
 from django.contrib.auth import logout
 
 # Create your views here.
@@ -91,7 +91,10 @@ def register(request):
     :param request: 网站请求
     :return:注册界面
     """
-    return render(request, 'register.html')
+    classes_list = Classes.objects.all()
+    return render(request, 'register.html', {
+        'classes_list': classes_list,
+    })
 
 
 def login_check(request):
@@ -143,10 +146,16 @@ def verification_code_check(request):
 
     if code.upper() == right_code.upper():  # 大小写不计，所以都改成大写
         request.session['name'] = request.POST.get('name')
+        request.session['class_id'] = request.POST.get('class_id')
         student_id = request.session['student_id']
         password = request.session['password']
         name = request.session['name']
-        new_user = Users.add_user(student_id, password, name)
+        class_id_str = request.session['class_id']
+        try:
+            class_id = Classes.objects.get(class_id__exact=class_id_str)
+        except Classes.DoesNotExist:
+            return HttpResponse('DoesNotExist')
+        new_user = Users.add_user(student_id=student_id, password=password, name=name, class_id=class_id)
         new_user.save()
         return HttpResponse('true')
     else:
@@ -155,7 +164,7 @@ def verification_code_check(request):
 
 def verification_code_check_application(request):
     """
-    检查输入的验证码是否正确
+    检查输入的验证码是否正确，是除register页面之外的页面的验证码检测
     :param request:
     :return:
     """
@@ -330,13 +339,16 @@ def review_application(request):
     if login_status == 1:
         student_id = request.session.get('student_id', 'None')
         user = Users.objects.get(student_id__exact=student_id)
+        user_class = user.class_id
         if user.identity == 'student':
             return redirect('zhcp:index')
         application_list_without_apply = Application.objects.filter(
-            captain_id__isnull=True
+            captain_id__isnull=True,
+            student_id__class_id=user_class,  # 只让班长看到自己班的学生
         )
         application_list_applied = Application.objects.filter(
-            captain_id__exact=student_id
+            captain_id__exact=student_id,
+            student_id__class_id=user_class,  # 只让班长看到自己班的学生
         ).order_by('-change_time')
         return render(request, 'reviewApplication.html', {
             'user': user,

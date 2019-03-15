@@ -3,6 +3,17 @@ from django.db import models
 # Create your models here.
 
 
+class Classes(models.Model):
+    class_id = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.class_id
+
+    class Meta:
+        db_table = "Classes"
+        ordering = ['id']  # 以id为标准升序
+
+
 """
 模型名称：Users（用户）
 属性：
@@ -13,6 +24,7 @@ from django.db import models
     5. score_sum 总分
 关联属性：
     1. activity 活动，多对多
+    2. classes 班级，一对多
 """
 
 
@@ -22,17 +34,19 @@ class Users(models.Model):
     password = models.CharField(max_length=20)
     identity = models.CharField(max_length=20, default="student",)
     score_sum = models.IntegerField(default=0, editable=False)
+    class_id = models.ForeignKey(Classes, on_delete=models.CASCADE, )
 
     @classmethod
-    def add_user(cls, student_id, password, name, ):
+    def add_user(cls, student_id, password, name, class_id):
         """
 
         :param student_id: 用户id
         :param password: 用户密码
         :param name: 用户姓名
+        :param class_id: 班级对象
         :return: user对象
         """
-        user = cls(student_id=student_id, password=password, name=name)
+        user = cls(student_id=student_id, password=password, name=name, class_id=class_id)
         return user
 
     def __str__(self):
@@ -106,4 +120,7 @@ class Activity(models.Model):
     class Meta:
         db_table = "Activity"
         ordering = ['id']  # 以id为标准升序
+
+
+
 

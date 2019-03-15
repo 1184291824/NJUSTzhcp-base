@@ -17,6 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}"/>
+{#        <link rel="stylesheet" type="text/css" href="{% static 'css/chosen.css' %}"/>#}
         <script src="{% static 'js/Swiper_4.4.6_js_swiper.js' %}" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
@@ -89,8 +90,12 @@
 						<div id="slider2-register-form">
 							<form action="#" method="post">
                                 {% csrf_token %}
-								<span>姓名：</span><input type="text" name="name" id="name" class="slider2-input" value="" placeholder="请输入姓名" maxlength="20"/><br>
+								 <span>姓名：</span><input type="text" name="name" id="name" class="slider2-input" value="" placeholder="请输入姓名" maxlength="20"/><br>
+
+                                <span>班级：</span><input type="text" name="class-id" id="class-id" class="slider2-input" value="" placeholder="请输入班级" maxlength="12"/><br>
+
                                 <span>验证码：</span><input type="text" name="VerificationCode" id="VerificationCode" class="slider2-input" value="" placeholder="请输入验证码" maxlength="4"/><br>
+
 								<input id="slider2-submit" type="submit" value="确认" />
 							</form>
 						</div>
@@ -137,8 +142,10 @@
 {#django#}
     <script src="{% static 'js/jquery-3.3.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
 	<script src="{% static 'js/jquery.color-2.1.2.js' %}"></script>
+{#    <script src="{% static 'js/chosen.jquery.js' %}" type="text/javascript" charset="utf-8"></script>#}
 	<script src="{% static 'js/header.js' %}" type="text/javascript" charset="utf-8"></script>
 	<script src="{% static 'js/swiper-register.js' %}" type="text/javascript" charset="utf-8"></script>
 	<script src="{% static 'js/swiper.animate1.0.3.min.js' %}" type="text/javascript" charset="utf-8"></script>
     <script src="{% static 'js/Ajax-csrf.js' %}" type="text/javascript" charset="UTF-8"></script>
+
 </html>

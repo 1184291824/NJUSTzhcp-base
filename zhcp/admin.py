@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Users, Application, Activity
+from .models import Users, Application, Activity, Classes
 
 
 @admin.register(Users)
@@ -12,6 +12,7 @@ class UserAdmin(admin.ModelAdmin):
         'pk',
         'student_id',
         'name',
+        'class_id',
         'identity',
         'score_sum',
     ]
@@ -45,3 +46,14 @@ class ActivityAdmin(admin.ModelAdmin):
     ]
 
     search_fields = ['name']  # 搜索字段
+
+
+@admin.register(Classes)
+class ClassesAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'pk',
+        'class_id'
+    ]
+
+    search_fields = ['classes_id']  # 搜索字段
