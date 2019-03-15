@@ -1,0 +1,51 @@
+{% extends 'base1.html' %}
+{% load staticfiles %}
+{% block title %}
+我的加分
+{% endblock %}
+{% block  content-title %}
+我的加分
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static "css/myScore.css" %}?ver=1"/>
+{% endblock %}
+{% block content %}
+    <div id="myScore-table" class="myScore-table" style="overflow: auto">
+        <table border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>加分种类</th>
+                    <th>名称</th>
+                    <th>提交时间</th>
+                    <th>加分</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for application in application_list %}
+                <tr>
+                    <td><img src="{% static 'img/index/我的申请.png' %}" alt="申请" ></td>
+                    <td>{{ application.name }}</td>
+                    <td>{{ application.create_time }}</td>
+                    <td>{{ application.score }}</td>
+                </tr>
+            {% endfor %}
+            {% for activity in activity_list %}
+                <tr>
+                    <td><img src="{% static 'img/index/我的活动.png' %}" alt="活动" ></td>
+                    <td>{{ activity.name }}</td>
+                    <td>{{ activity.create_time }}</td>
+                    <td>{{ activity.score }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><img src="{% static 'img/index/图标-合计.png' %}" alt="总分"></td>
+                    <td>总分</td>
+                    <td></td>
+                    <td>{{ user.score_sum }}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base1.html' %}
+{% load staticfiles %}
+{% block title %}
+我的申请
+{% endblock %}
+{% block  content-title %}
+我的申请
+{% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static "css/myApplication.css" %}?ver=1"/>
+{% endblock %}
+{% block content %}
+    <div id="myApplication-title" class="myApplication-title">
+        <div id="myApplication-title-1" class="myApplication-title-child">
+            <img src="{% static 'img/index/未审核.png' %}" alt="未审核">
+            <span>未审核</span>
+        </div>
+        <div id="myApplication-title-2" class="myApplication-title-child">
+            <img src="{% static 'img/index/对勾.png' %}" alt="未审核">
+            <span>审核通过</span>
+        </div>
+        <div id="myApplication-title-3" class="myApplication-title-child">
+            <img src="{% static 'img/index/错误.png' %}" alt="未审核">
+            <span>审核未通过</span>
+        </div>
+    </div>
+    <div id="myApplication-body-without-apply" class="myApplication-body">
+        <div class="myApplication-body-element">
+            <div><img src="{% static 'img/index/名称.png' %}" alt="活动名称" title="活动名称"></div>
+            <div><img src="{% static 'img/index/日期.png' %}" alt="申请日期" title="申请日期"></div>
+        </div>
+        {% for foo in without_apply %}
+        <div class="myApplication-body-element">
+            <div>{{ foo.name }}</div>
+            <div>{{ foo.create_time.month }}月{{ foo.create_time.day }}日</div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="myApplication-body-success" class="myApplication-body">
+        <div class="myApplication-body-element">
+            <div><img src="{% static 'img/index/名称.png' %}" alt="活动名称" title="活动名称"></div>
+            <div><img src="{% static 'img/index/管理员.png' %}" alt="审批人学号" title="审批人学号"></div>
+            <div><img src="{% static 'img/index/日期.png' %}" alt="申请日期" title="申请日期"></div>
+        </div>
+        {% for foo in success %}
+        <div class="myApplication-body-element">
+            <div>{{ foo.name }}</div>
+            <div>{{ foo.captain_id }}</div>
+            <div>{{ foo.change_time.month }}月{{ foo.change_time.day }}日</div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="myApplication-body-fail" class="myApplication-body">
+        <div class="myApplication-body-element">
+            <div><img src="{% static 'img/index/名称.png' %}" alt="活动名称" title="活动名称"></div>
+            <div><img src="{% static 'img/index/管理员.png' %}" alt="审批人学号" title="审批人学号"></div>
+            <div><img src="{% static 'img/index/日期.png' %}" alt="申请日期" title="申请日期"></div>
+        </div>
+        {% for foo in fail %}
+        <div class="myApplication-body-element">
+            <div>{{ foo.name }}</div>
+            <div>{{ foo.captain_id }}</div>
+            <div>{{ foo.create_time.month }}月{{ foo.create_time.day }}日</div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

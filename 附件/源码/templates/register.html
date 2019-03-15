@@ -1,0 +1,144 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册|综合测评系统</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/header.css"/>#}
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/footer.css"/>#}
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/animate.min.css"/>#}
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/register.css"/>#}
+{#		<script src="../../static/js/Swiper_4.4.6_js_swiper.js" type="text/javascript" charset="utf-8"></script>#}
+
+{#        django#}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}"/>
+        <script src="{% static 'js/Swiper_4.4.6_js_swiper.js' %}" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header>
+			<!-- 南京理工logo -->
+			<img id="logo-mini" src="{% static 'img/login/logo-mini.png' %}" alt="南京理工大学logo" title="南京理工大学">
+			
+			<!-- 搜索框 -->
+			<div id="searchBox" class="searchBox">
+				<!--搜索按钮图标--> 
+				<img src="{% static 'img/search.png' %}" class="searchIcon" alt="搜索">
+				<!--搜索input框-->
+				<input class="searchInput" id="searchInput" type="text" maxlength="20" value="" placeholder="搜索功能暂不可用">
+			</div>
+			
+			<!-- 登录注册按钮 -->
+			<div id="log-button">
+				<a href="{% url 'zhcp:login' %}#slide2" class="log-button-login">登录</a>
+				<a href="#" class="log-button-register" disabled>注册</a>
+			</div>
+		</header>
+		<!-- 标题栏 -->
+		<div class="title-bar">
+			<img src="{% static 'img/register/注册.png' %}" >
+			用户注册
+		</div>
+		
+		<!-- 注册进度表示 -->
+		<div id="register-pagination" class="register-pagination">
+			<div class="register-step">
+				<span id="step1" class="current-step">1、填写账号密码</span>
+				<span id="step2">2、完善用户信息</span>
+				<span id="step3">3、注册成功</span>
+				<!-- <span class="step4">4、注册成功</span> -->
+			</div>
+			<div class="register-progress">
+				<div class="register-progress register-progress-bar"></div>
+			</div>
+		</div>
+		
+		<!-- 滚动条 -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div id="slider1-register">
+						<h1 class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s">填写账号密码</h1>
+						<div id="slider1-register-form" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
+							<form action="#" method="post">
+								{% csrf_token %}
+								学号：<input type="text" id="student_id" name="student_id" value="" placeholder="请输入学号" class="ani slider1-input" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.2s" swiper-animate-delay="0.3s" maxlength="12"/><br>
+								密码：<input type="password" name="password" id="password" placeholder="请输入密码" value="" class="ani slider1-input" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.4s" swiper-animate-delay="0.3s" maxlength="20"/><br>
+								确认：<input type="password" name="password_check" id="password_check" placeholder="请再次输入密码" value="" class="ani slider1-input" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.6s" swiper-animate-delay="0.3s" maxlength="20"/><br>
+								<input id="slider1-submit" type="submit" value="确定" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.8s" swiper-animate-delay="0.3s"/>
+							</form>
+						</div>
+					</div>
+					<div id="slider1-note" class="ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.8s" swiper-animate-delay="0.3s">
+						<h1>注意</h1><hr >
+						<p>1.账号为91开头的学号</p>
+						<p>2.密码可以包含字母、数字、下划线</p>
+						<div id="slider1-note-errors">
+							<hr >
+							<h1></h1>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<div id="slider2-register">
+						<h1>完善用户信息</h1>
+						<div id="slider2-register-form">
+							<form action="#" method="post">
+                                {% csrf_token %}
+								<span>姓名：</span><input type="text" name="name" id="name" class="slider2-input" value="" placeholder="请输入姓名" maxlength="20"/><br>
+                                <span>验证码：</span><input type="text" name="VerificationCode" id="VerificationCode" class="slider2-input" value="" placeholder="请输入验证码" maxlength="4"/><br>
+								<input id="slider2-submit" type="submit" value="确认" />
+							</form>
+						</div>
+					</div>
+                    <div id="slider2-note" >
+						<h1>注意</h1><hr >
+                        <img src="{% url 'zhcp:verificationCode' %}" alt="验证码" title="点击刷新验证码" id="verificationCode">
+                        <span>点击图片刷新验证码</span>
+						<div id="slider2-note-errors">
+							<hr >
+							<h1></h1>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+                    <div id="slider3-register">
+                        <img src="{% static 'img/register/完成.png' %}" alt="完成">
+                        <h1>恭喜你已经完成注册！</h1>
+                    </div>
+                    <div id="slider3-login" >
+						<a id="slider3-login-a" href="{% url 'zhcp:login' %}#slide2">点击登录</a>
+					</div>
+                </div>
+			</div>
+			<!-- 如果需要分页器 -->
+			<!-- <div class="swiper-pagination"></div> -->
+
+			<!-- 如果需要导航按钮 -->
+{#			<div class="swiper-button-prev"></div>#}
+{#			<div class="swiper-button-next"></div>#}
+		</div>
+		
+		<footer>
+			<hr style="height:3px;border:none;border-top:2px solid #fc5806;"/>
+			<p>本网站由马子轩制作</p>
+		</footer>
+	</body>
+{#	<script src="../../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../../static/js/jquery.color-2.1.2.js"></script>#}
+{#	<script src="../../static/js/header.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../../static/js/swiper-register.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../../static/js/swiper.animate1.0.3.min.js" type="text/javascript" charset="utf-8"></script>#}
+
+{#django#}
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'js/jquery.color-2.1.2.js' %}"></script>
+	<script src="{% static 'js/header.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'js/swiper-register.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'js/swiper.animate1.0.3.min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'js/Ajax-csrf.js' %}" type="text/javascript" charset="UTF-8"></script>
+</html>

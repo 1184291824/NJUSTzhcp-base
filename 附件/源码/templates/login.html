@@ -1,0 +1,173 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录|综合测评系统</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.min.css">
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/header.css"/>#}
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/footer.css"/>#}
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/swiper.css"/>#}
+{#		<link rel="stylesheet" type="text/css" href="../../static/css/animate.min.css"/>#}
+{#		<script src="../../static/js/Swiper_4.4.6_js_swiper.js" type="text/javascript" charset="utf-8"></script>#}
+        {#        Django#}
+        <link rel="stylesheet" type="text/css" href="{% static "css/header.css" %}?ver=1"/>
+		<link rel="stylesheet" type="text/css" href="{% static "css/footer.css" %}?ver=1"/>
+		<link rel="stylesheet" type="text/css" href="{% static "css/swiper.css" %}?ver=1"/>
+		<link rel="stylesheet" type="text/css" href="{% static "css/animate.min.css" %}"/>
+        <script src="{% static 'js/Swiper_4.4.6_js_swiper.js' %}" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<header>
+			<!-- 南京理工logo -->
+			<img id="logo-mini" src="{% static 'img/login/logo-mini.png' %}" alt="南京理工大学logo" title="南京理工大学">
+			
+			<!-- 搜索框 -->
+			<div id="searchBox" class="searchBox">
+				<!--搜索按钮图标--> 
+				<img src="{% static 'img/search.png' %}" class="searchIcon" alt="搜索">
+				<!--搜索input框-->
+				<input class="searchInput" id="searchInput" type="text" maxlength="20" value="" placeholder="搜索功能暂不可用">
+			</div>
+			
+			<!-- 登录注册按钮 -->
+			<div id="log-button">
+				<a href="{% url 'zhcp:login' %}#slide2" class="log-button-login">登录</a>
+				<a href="{% url 'zhcp:register' %}" class="log-button-register">注册</a>
+			</div>
+		</header>
+		<!-- 滚动条 -->
+		<div class="swiper-container swiper-container-h">
+			<!-- 背景 -->
+			<div class="swiper-container-background" data-swiper-parallax="-10%"></div>
+			<div class="swiper-wrapper">
+				<div id="slider1" class="swiper-slide" data-hash="slide1">
+					<h1 data-swiper-parallax="-100%">欢迎使用综合测评系统</h1>
+					<div id="slider1-login" data-swiper-parallax="-100%">
+						<a id="slider1-login-a" href="#slide2">点击登录</a>
+					</div>
+				</div>
+				<div id="slider2" class="swiper-slide" data-hash="slide2" >
+					<div id="slider2-login" class="swiper-no-swiping">
+						<h1>综合测评系统</h1>
+						<div id="slider2-login-form">
+							<form action="#" method="post">
+                                {% csrf_token %}
+								学号：<input type="text" id="student_id" name="student_id" value="" placeholder="请输入学号" maxlength="12"/><br>
+								密码：<input type="password" name="password" id="password" placeholder="请输入密码" value="" maxlength="20"/><br>
+                                <span id="password-wrong">用户名或密码错误</span>
+                                <span id="id-DoesNotExist">用户名不存在<a href="{% url 'zhcp:register' %}">--点我注册--</a></span>
+								<input type="submit" value="登录"/>
+							</form>
+						</div>
+						
+						
+					</div>
+				</div>
+				<div id="slider3" class="swiper-slide" data-hash="slide3">
+					<h1 data-swiper-parallax="-100%">网站|简介</h1><hr >
+					<div class="swiper-container swiper-container-v">
+						<div class="swiper-wrapper">
+							<div id="swiper-slider-v-1" class="swiper-slide swiper-slide-v" >
+								<div class="swiper-slide-v-left">
+									<img src="{% static 'img/members/mzx.jpg' %}" alt="马子轩">
+								</div>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%">
+									<h1>作者|马子轩</h1>
+									<hr style="margin: 30px 0;">
+									<p>&gt; 南京理工大学电光学院16级本科生</p>
+									<p>&gt; 学习成绩优异，平常乐于助人</p>
+									<p>&gt; 热爱编程和网站制作，在CSDN网站发表博客29篇，排名15万+，拥有粉丝48人</p>
+									<p>&gt; 我已经在<a href="https://www.pythonanywhere.com/" target="_blank">pythonanywhere</a>部署了多个小型web程序和网页游戏，如<a href="http://1184291824.pythonanywhere.com/blueBlock" target="_blank">《别碰白块》</a>，<a href="http://1184291824.pythonanywhere.com/shootGame" target="_blank">《射击练习》</a>等</p>
+									<p>&gt; 目前仍在学习网站制作，也非常喜欢和大家交流，谢谢~~~</p>
+								</div>
+							</div>
+							<div id="swiper-slider-v-2" class="swiper-slide swiper-slide-v" >
+								<div class="swiper-slide-v-left">
+									<img src="{% static 'img/members/django.jpg' %}" style="width: 600px" alt="django">
+								</div>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%" style="left: 750px">
+									<h1>后端框架|django</h1>
+									<hr style="margin: 30px 0;">
+									<p>&gt; Django是一个开放源代码的Web应用框架，由Python写成。采用了MVC的框架模式，即模型M，视图V和控制器C</p>
+                                    <p>&gt; 它最初是被开发来用于管理劳伦斯出版集团旗下的一些以新闻内容为主的网站的，即是CMS（内容管理系统）软件。</p>
+                                    <p>&gt; 这套框架是以比利时的吉普赛爵士吉他手Django Reinhardt来命名的。</p>
+								</div>
+							</div>
+							<div id="swiper-slider-v-3" class="swiper-slide swiper-slide-v" >
+								<div class="swiper-slide-v-left">
+									<img src="{% static 'img/members/jQuery.gif' %}" style="width: 400px; height: 400px" alt="jQuery">
+								</div>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%" style="left: 600px">
+									<h1>前端框架|jQuery</h1>
+									<hr style="margin: 30px 0;">
+									<p>&gt; jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一个优秀的JavaScript代码库（或JavaScript框架）。</p>
+									<p>&gt; jQuery设计的宗旨是“write Less，Do More”，即倡导写更少的代码，做更多的事情。</p>
+									<p>&gt; 它封装JavaScript常用的功能代码，提供一种简便的JavaScript设计模式，优化HTML文档操作、事件处理、动画设计和Ajax交互。</p>
+									<p>&gt; jQuery的核心特性可以总结为：具有独特的链式语法和短小清晰的多功能接口；具有高效灵活的css选择器，并且可对CSS选择器进行扩展；拥有便捷的插件扩展机制和丰富的插件。</p>
+								</div>
+							</div>
+                            <div id="swiper-slider-v-4" class="swiper-slide swiper-slide-v" >
+								<div class="swiper-slide-v-left">
+									<img src="{% static 'img/members/swiper.png' %}" style="width: 335px; height: 118px" alt="swiper">
+								</div>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%" style="left: 550px">
+									<h1>前端框架插件|swiper</h1>
+									<hr style="margin: 30px 0;">
+									<p>&gt; Swiper 是一款免费以及轻量级的移动设备触控滑块的js框架，使用硬件加速过渡（如果该设备支持的话）。</p>
+									<p>&gt; 主要是为IOS而设计的，同时，在Android、WP8系统也有着良好的用户体验，Swiper从3.0开始不再全面支持PC端。</p>
+									<p>&gt; 因此，如需在PC上兼容更多的浏览器，可以选择Swiper2.x（甚至支持IE7）。</p>
+									<p>&gt; Swiper 完全免费并开源（MIT Licensed），无论你使用在个人网站或商业网站，都无需付费。</p>
+								</div>
+							</div>
+                            <div id="swiper-slider-v-5" class="swiper-slide swiper-slide-v" >
+								<div class="swiper-slide-v-left">
+									<img src="{% static 'img/members/pythonanywhere.PNG' %}" style="width: 322px; height: 60px" alt="pythonanywhere">
+								</div>
+								<div class="swiper-slide-v-right" data-swiper-parallax="-100%" style="left: 550px">
+									<h1>服务器|pythonanywhere</h1>
+									<hr style="margin: 30px 0;">
+									<p>&gt; pythonanywhere为python开发者提供了免费的云端环境（额外功能需付费）。
+                                    </p>
+									<p>&gt; 优点：</p>
+                                    <ul>
+                                        <li>简单配置wsgi直接部署web应用</li>
+                                        <li>提供MySQL和Postgres</li>
+                                        <li>免费账户两个console，一个Bash，一个MySQL</li>
+                                        <li>图形化文件编辑页面</li>
+                                    </ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 如果需要分页器 -->
+			<!-- <div class="swiper-pagination"></div> -->
+			
+			<!-- 如果需要导航按钮 -->
+			<div class="swiper-button-prev swiper-button-white"></div>
+			<div class="swiper-button-next swiper-button-white"></div>
+			
+			<!-- 如果需要滚动条 -->
+			<div class="swiper-scrollbar"></div>
+		</div>
+		<footer>
+			<hr style="height:3px;border:none;border-top:2px solid #fc5806;"/>
+			<p>本网站由马子轩制作</p>
+		</footer>
+	</body>
+{#	<script src="../../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>#}
+{#	<script src="../../static/js/header.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../../static/js/swiper-login.js" type="text/javascript" charset="utf-8"></script>#}
+{#	<script src="../../static/js/swiper.animate1.0.3.min.js" type="text/javascript" charset="utf-8"></script>#}
+
+{#Django#}
+    <script src="{% static "js/jquery-3.3.1.min.js" %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'js/jquery.color-2.1.2.js' %}" type="text/javascript" charset="UTF-8"></script>
+	<script src="{% static "js/header.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static "js/Ajax-csrf.js" %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static "js/swiper-login.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static "js/swiper.animate1.0.3.min.js" %}" type="text/javascript" charset="utf-8"></script>
+</html>

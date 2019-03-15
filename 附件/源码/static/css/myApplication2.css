@@ -1,0 +1,26 @@
+.reviewApplication-title{
+    width: 33%;
+    float: left;
+}
+.reviewApplication-title-bar{
+    width: 4em;
+    height: 3px;
+    background-color: #f8f8f8;
+    position: absolute;
+    bottom: 3px;
+    left: calc(-2em + 16.5%);
+}
+#reviewApplication-tbody-2, #reviewApplication-tbody-3{
+    display: none;
+}
+.reviewApplication-a, #reviewApplication-input{
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    height: 40px;
+    color: white;
+    width: 300px;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px;
+    border: 1px solid #F8F8F8;
+}
