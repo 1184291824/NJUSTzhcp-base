@@ -55,9 +55,8 @@ def verification_code(request):
         draw.text((i * (width/4) + 10, -12),
                   rand_python[i],
                   tuple(text_color),
-                  # font=ImageFont.truetype(r'C:\Windows\Fonts\BRADHITC.TTF', 50),
-                  font=ImageFont.truetype(r'..\static\fonts\segoepr.ttf', 50),
-
+                  font=ImageFont.truetype('segoepr.ttf', 50),
+                  # font=ImageFont.truetype('/home/mzx/NJUSTzhcp-base/static/fonts/segoepr.ttf', 50),
                   align='center')
 
     # 3 释放画笔

@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# DEBUG = False
+#
+# ALLOWED_HOSTS = ['mzx.pythonanywhere.com']
+
 
 # Application definition
 
@@ -85,6 +89,17 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': "mzx$zhcp",
+#         'USER': 'mzx',
+#         'PASSWORD': '86110339mzx',
+#         'HOST': 'mzx.mysql.pythonanywhere-services.com',
+#     }
+# }
 
 
 # Password validation
