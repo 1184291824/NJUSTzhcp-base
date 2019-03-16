@@ -4,7 +4,7 @@ from . import views, VerificationCode
 app_name = "zhcp"
 
 urlpatterns = [
-    path('test/', views.test, name='test'),
+    # path('test/', views.test, name='test'),
     path('refresh/', views.refresh_score_sum, name='refresh'),
 
     path('login/', views.login, name='login'),
@@ -12,6 +12,7 @@ urlpatterns = [
 
     path('register/', views.register, name='register'),
     path('register/check/', views.register_check, name='registerCheck'),
+    path('register/mCheck/', views.mobile_register_check, name='mobileRegisterCheck'),
     path('verificationCode/', VerificationCode.verification_code, name='verificationCode'),
     path('register/verificationCode/check/', views.verification_code_check, name='verificationCodeCheck'),
 

@@ -206,6 +206,7 @@ $(document).ready(function(){
 					$("#slider2-note-errors h1").text("您输入的班级不存在");
 					input_class_id.css("border", "1px solid red");
 					input_class_id.focus();
+					$('#verificationCode')[0].src="../verificationCode/?"+new Date().getTime();
 				}
 			},
 		})

@@ -10,6 +10,24 @@ def test(request):
     return render(request, 'mobile/login.html')
 
 
+# 获取设备类型
+def device(request):
+    """
+    获取设备类型
+    :param request:
+    :return:
+        False:手机
+        True:PC
+    """
+    agent = request.META['HTTP_USER_AGENT'].lower()
+    mobile = ['iphone', 'android', 'symbianos', 'windows phone']
+
+    if any([agent.find(name) + 1 for name in mobile]):
+        return False
+    else:
+        return True
+
+
 # 更新总分
 def refresh_score_sum(user):
     """更新总分
@@ -69,7 +87,10 @@ def login(request):
     """
     login_status = request.session.get('login_status', 0)
     if login_status == 0:
-        return render(request, 'login.html')
+        if device(request) is True:
+            return render(request, 'login.html')
+        else:
+            return render(request, 'mobile/login.html')
     else:
         return redirect('zhcp:index')
 
@@ -79,10 +100,15 @@ def register(request):
     :param request: 网站请求
     :return:注册界面
     """
-    classes_list = Classes.objects.all()
-    return render(request, 'register.html', {
-        'classes_list': classes_list,
-    })
+    # return render(request, 'register.html', )
+    login_status = request.session.get('login_status', 0)
+    if login_status == 0:
+        if device(request) is True:
+            return render(request, 'register.html')
+        else:
+            return render(request, 'mobile/register.html')
+    else:
+        return redirect('zhcp:index')
 
 
 def login_check(request):
@@ -146,6 +172,37 @@ def verification_code_check(request):
         new_user = Users.add_user(student_id=student_id, password=password, name=name, class_id=class_id)
         new_user.save()
         return HttpResponse('true')
+    else:
+        return HttpResponse('false')
+
+
+def mobile_register_check(request):
+    """
+    移动端检测注册是否成功，如果成功则添加用户
+    :param request:
+    :return:
+    """
+    student_id = request.POST.get('student_id')
+    code = request.POST.get('code', '1')
+    right_code = request.session['verification_code']
+
+    if code.upper() == right_code.upper():  # 大小写不计，所以都改成大写
+        try:
+            Users.objects.get(student_id__exact=student_id)
+            return HttpResponse('StudentExist')
+        except Users.DoesNotExist:
+            class_id_str = request.POST.get('class_id')
+            try:
+                class_id = Classes.objects.get(class_id__exact=class_id_str)
+            except Classes.DoesNotExist:
+                return HttpResponse('ClassesDoesNotExist')
+
+            name = request.POST.get('name')
+            password = request.POST.get('password')
+            new_user = Users.add_user(student_id=student_id, password=password, name=name, class_id=class_id)
+            new_user.save()
+
+            return HttpResponse("true")
     else:
         return HttpResponse('false')
 

@@ -1,0 +1,80 @@
+{% extends 'mobile/base0.html' %}
+{% load staticfiles %}
+
+{% block title %}注册|综合测评系统{% endblock %}
+
+{% block head %}
+<link href="{% static 'mui/css/register.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block header %}注册|综合测评系统{% endblock %}
+
+{% block body %}
+    <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item " id="mobile-login-a">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">登录</span>
+        </a>
+        <a class="mui-tab-item mui-active" id="mobile-register-a">
+            <span class="mui-icon mui-icon-personadd"></span>
+            <span class="mui-tab-label">注册</span>
+        </a>
+    </nav>
+<div id="NJUSTlogo" style="margin: 20px auto;width: 60%;">
+    <img src="{% static 'img/NJUSTlogo.png' %}" style="width: 100%;" alt="南京理工大学">
+</div>
+<div class="register-h1">
+    <span>欢迎使用综合测评系统</span>
+</div>
+<div id="mobile-register" class="register-from">
+    <form>
+        {% csrf_token %}
+        <div class="mui-input-row">
+            <label>
+                学号：
+            </label>
+            <input type="text" class="mui-input-clear" id="student_id" name="student_id" value="" placeholder="请输入学号" maxlength="12">
+        </div>
+        <div class="mui-input-row">
+            <label>
+                密码：
+            </label>
+            <input type="password" class="mui-input-password" id="password" name="password" value="" placeholder="请输入密码" maxlength="20">
+        </div>
+        <div class="mui-input-row">
+            <label>
+                确认密码：
+            </label>
+            <input type="password" class="mui-input-password" id="password_check" name="password_check" value="" placeholder="再次输入密码" maxlength="20">
+        </div>
+        <div class="mui-input-row">
+            <label>
+                姓名：
+            </label>
+            <input type="text" class="mui-input-clear" id="name" name="name" value="" placeholder="请输入姓名" maxlength="20">
+        </div>
+        <div class="mui-input-row">
+            <label>
+                班级：
+            </label>
+            <input type="text" class="mui-input-clear" id="class-id" name="class-id" value="" placeholder="请输入班级" maxlength="10">
+        </div>
+        <div id="verificationCode-div" class="img-box">
+            <img src="{% url 'zhcp:verificationCode' %}" alt="验证码" title="点击刷新验证码" id="verificationCode" style="width: 100%"><span>点击图片刷新验证码</span>
+        </div>
+
+        <div class="mui-input-row">
+            <label>
+                验证码：
+            </label>
+            <input type="text" class="mui-input-clear" id="VerificationCode" name="VerificationCode" value="" placeholder="请输入验证码" maxlength="4">
+        </div>
+        <div class="mui-button-row">
+            <button type="button" class="mui-btn mui-btn-primary" id="button-register">注册</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+{% block footer %}
+    <script src="{% static 'mui/js/register.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock %}

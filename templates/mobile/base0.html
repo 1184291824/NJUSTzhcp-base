@@ -13,18 +13,35 @@
     {% block head %}
     {% endblock %}
 </head>
-
-<header class="mui-bar mui-bar-nav">
-	<h1 class="mui-title">{% block header %}{% endblock %}</h1>
-</header>
 <body>
+    <header class="mui-bar mui-bar-nav">
+        <h1 class="mui-title">{% block header %}{% endblock %}</h1>
+    </header>
+
 	<div class="mui-content">
 		{% block body %}
         {% endblock %}
 	</div>
+
+    <footer>
+    <script src="{% static 'mui/js/jquery-3.3.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'mui/js/Ajax-csrf.js' %}" type="text/javascript" charset="utf-8"></script>
+        {% block footer %}
+        {% endblock %}
+    <script type="text/javascript">
+        mui.ready(function () {
+            mui('.mui-bar').on('tap', '#mobile-login-a', function () {
+                mui.openWindow({
+                    url:'{% url 'zhcp:login' %}',
+                })
+            });
+            mui('.mui-bar').on('tap', '#mobile-register-a', function () {
+                mui.openWindow({
+                    url:'{% url 'zhcp:register' %}',
+                })
+            });
+        });
+    </script>
+    </footer>
 </body>
-<footer>
-    {% block footer %}
-    {% endblock %}
-</footer>
 </html>

@@ -1,39 +1,54 @@
 {% extends 'mobile/base0.html' %}
 {% load staticfiles %}
+
 {% block title %}登录|综合测评系统{% endblock %}
+
 {% block head %}
-    <link href="{% static 'mui/css/login.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'mui/css/login.css' %}" rel="stylesheet" type="text/css"/>
 {% endblock %}
-{% block header %}登录{% endblock %}
+
+{% block header %}登录|综合测评系统{% endblock %}
+
 {% block body %}
-    <div id="NJUSTlogo" style="margin: 10px auto;width: 60%;">
-        <img src="{% static 'img/NJUSTlogo.png' %}" style="width: 100%;" alt="南京理工大学">
-    </div>
-    <div class="login-h1">
-        <span>欢迎使用综合测评系统</span>
-    </div>
-    <div class="login-from">
+    <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item mui-active" id="mobile-login-a">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">登录</span>
+        </a>
+        <a class="mui-tab-item" id="mobile-register-a">
+            <span class="mui-icon mui-icon-personadd"></span>
+            <span class="mui-tab-label">注册</span>
+        </a>
+    </nav>
+<div id="NJUSTlogo" style="margin: 20px auto;width: 60%;">
+    <img src="{% static 'img/NJUSTlogo.png' %}" style="width: 100%;" alt="南京理工大学">
+</div>
+<div class="login-h1">
+    <span>欢迎使用综合测评系统</span>
+</div>
+<div id="mobile-login" class="login-from">
     <form>
+        {% csrf_token %}
         <div class="mui-input-row">
             <label>
                 <span class="mui-icon mui-icon-person"></span>
                 <div style="width: 1px;height: 24px;background-color: gray;display: inline-block;vertical-align: top;margin: 0 5px;"></div>
             </label>
-            <input type="text" class="mui-input-clear" placeholder="请输入学号">
+            <input type="text" class="mui-input-clear" id="student_id" name="student_id" value="" placeholder="请输入学号">
         </div>
         <div class="mui-input-row">
             <label>
                 <span class="mui-icon mui-icon-locked"></span>
                 <div style="width: 1px;height: 24px;background-color: gray;display: inline-block;vertical-align: top;margin: 0 5px;"></div>
             </label>
-            <input type="password" class="mui-input-password" placeholder="请输入密码">
+            <input type="password" class="mui-input-password" id="password" name="password" value="" placeholder="请输入密码">
         </div>
         <div class="mui-button-row">
             <button type="button" class="mui-btn mui-btn-primary" id="button-login">登录</button>
         </div>
-        <div class="mui-button-row">
-            <button type="button" class="mui-btn" id="button-register" style="margin: 0 auto;">注册</button>
-        </div>
     </form>
-    </div>
+</div>
+{% endblock %}
+{% block footer %}
+    <script src="{% static 'mui/js/login.js' %}" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
