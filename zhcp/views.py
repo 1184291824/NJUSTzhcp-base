@@ -70,7 +70,11 @@ def index(request):
         name = user.name
         identity = user.identity
         score_sum = user.score_sum
-        return render(request, 'index.html', {
+        if device(request) is True:
+            url_str = 'index.html'
+        else:
+            url_str = 'mobile/index.html'
+        return render(request, url_str, {
             'name': name,
             'student_id': student_id,
             'identity': identity,

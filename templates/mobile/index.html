@@ -1,0 +1,133 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="{% static 'mui/css/mui.min.css' %}" rel="stylesheet" />
+		<link href="{% static 'mui/css/index.css' %}" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">主页</h1>
+            <span class="mui-icon mui-icon-help mui-active" style="float: right"></span>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view" style="margin-top: 30px; border-radius: 10px;">
+				<li class="mui-table-view-cell mui-media">
+					<a href="{% url 'zhcp:index' %}">
+						<img class="mui-media-object mui-pull-left" src="{% static 'img/NJUSTlogomini.jpg' %}" style="width: 70px;max-width: 70px;height: 70px;" alt="头像">
+						<div class="mui-media-body">
+                            <h3>{{ name }}</h3>
+                            <p class="mui-ellipsis">学号：{{ student_id }}</p>
+                            <p class="mui-ellipsis">身份：
+                            {% if identity == 'student' %}学生
+                            {% elif identity == 'captain' %}班长
+                            {% elif identity == 'teacher' %}老师
+                            {% endif %}</p>
+                            <span style="display: none" id="identity">{{ identity }}</span>
+						</div>
+					</a>
+				</li>
+			</ul>
+
+			<div class="title">
+				学生
+			</div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+
+					<a class="mui-navigate-right" href="{% url 'zhcp:myScore' %}">
+						<img src="{% static 'mui/img/icon/我的加分.png' %}" class="menu-left-option-img" alt="我的加分">我的加分
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" href="{% url 'zhcp:submitApplication' %}">
+						<img src="{% static 'mui/img/icon/提交申请.png' %}" class="menu-left-option-img" alt="提交申请">提交申请
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" href="{% url 'zhcp:myApplication' %}">
+						<img src="{% static 'mui/img/icon/我的申请.png' %}" class="menu-left-option-img" alt="我的申请">我的申请
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" href="{% url 'zhcp:myActivity' %}">
+						<img src="{% static 'mui/img/icon/我的活动.png' %}" class="menu-left-option-img" alt="我的活动">我的活动
+					</a>
+				</li>
+			</ul>
+			<div class="bottom-tips">
+				专门为学生设计，管理自己的加分
+			</div>
+
+			<div class="title">
+				班长
+			</div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right a-captain" {% if identity == 'captain' %}
+					href="{% url 'zhcp:reviewApplication' %}"
+					{% endif %}>
+						<img src="{% static 'mui/img/icon/审核申请.png' %}" class="menu-left-option-img" alt="审核申请">审核申请
+					</a>
+				</li>
+			</ul>
+			<div class="bottom-tips">
+				只有您的权限是班长时才可以进入
+			</div>
+
+			<div class="title">
+				老师
+			</div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right a-teacher" {% if identity == 'teacher' %}
+					href="{% url 'zhcp:reviewApplication' %}"
+					{% endif %}>
+						<img src="{% static 'mui/img/icon/审核申请.png' %}" class="menu-left-option-img" alt="审核申请">审核申请
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right a-teacher"{% if identity == 'teacher' %}
+					href="{% url 'zhcp:submitActivity' %}"
+					{% endif %}>
+						<img src="{% static 'mui/img/icon/提交活动.png' %}" class="menu-left-option-img" alt="提交活动">提交活动
+					</a>
+				</li>
+			</ul>
+			<div class="bottom-tips">
+				只有您的权限是老师时才可以进入
+			</div>
+
+			<div class="title">
+
+			</div>
+            <ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right a-captain" >
+						<img src="{% static 'mui/img/icon/开发者信息.png' %}" class="menu-left-option-img" alt="开发者信息">开发者信息
+					</a>
+				</li>
+			</ul>
+            <div class="bottom-tips">
+				可以点进来看看哦
+			</div>
+
+			<div class="mui-button-row">
+				<button type="button" class="mui-btn mui-btn-danger" id="button-logout">退出登录</button>
+			</div>
+
+		</div>
+		<script src="{% static 'mui/js/mui.min.js' %}"></script>
+		<script src="{% static 'js/jquery-3.3.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
+        <script src="{% static 'mui/js/index.js' %}" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

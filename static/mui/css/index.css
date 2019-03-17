@@ -1,0 +1,36 @@
+.title {
+    margin: 30px 30px 7px;
+    color: #6d6d72;
+    font-size: 15px;
+}
+
+.bottom-tips {
+    margin: -20px 30px 0;
+    color: #6d6d72;
+    font-size: 15px;
+}
+
+.mui-table-view {
+    margin: 7px 10px 30px 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px lightgrey;
+}
+
+.mui-table-view:before,
+.mui-table-view:after {
+    display: none;
+}
+
+.mui-btn {
+    margin: 40px 10px;
+    height: 46px;
+    width: calc(100% - 20px);
+    border-radius: 10px;
+}
+
+.menu-left-option-img {
+    width: 20px;
+    margin: 0 5px 0 0;
+    vertical-align: middle;
+}
