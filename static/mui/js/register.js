@@ -80,6 +80,11 @@ $(document).ready(function () {
                    }
                    },
            })
-       })
+       });
+
+       verificationCode_img[0].addEventListener('tap', function () {
+           verificationCode_img[0].src="../verificationCode/?"+new Date().getTime();
+           input_VerificationCode.val("").focus();
+       });
    })
 });

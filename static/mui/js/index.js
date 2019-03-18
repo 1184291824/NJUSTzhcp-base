@@ -8,6 +8,9 @@ mui.ready(function() {
         $('.a-teacher')[0].addEventListener('tap', function () {
             mui.alert('您的身份不是老师', '权限出错', '确定');
         })
+        $('.a-teacher')[1].addEventListener('tap', function () {
+            mui.alert('您的身份不是老师', '权限出错', '确定');
+        })
     }
     mui('.mui-button-row').on('tap', '#button-logout', function () {
         mui.confirm('退出登录？', '提示', ['确定','取消'],function (button) {
@@ -16,4 +19,13 @@ mui.ready(function() {
             }
         });
     });
+     /*
+     * 隐藏滚动条
+     */
+     var Fun_App = {
+    delscroll: function(){
+        plus.webview.currentWebview().setStyle({
+            scrollIndicator: 'none',
+        });
+    },  }
 });
