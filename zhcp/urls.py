@@ -32,6 +32,7 @@ urlpatterns = [
     path('submitActivity/', views.submit_activity, name='submitActivity'),
     path('submitActivity/add', views.submit_activity_add, name='submitActivityAdd'),
     path('submitActivity/success/', views.submit_activity_success, name='submitActivitySuccess'),
-
+    path('developer/', views.developer, name="developer"),
+    path('piano/', views.piano, name="piano"),
 
 ]

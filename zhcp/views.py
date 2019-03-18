@@ -530,3 +530,31 @@ def submit_activity_success(request):
         })
     else:
         return redirect('zhcp:login')
+
+
+def developer(request):
+    """
+    返回开发者信息页面
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        return render(request, 'mobile/Developer.html', )
+    else:
+        return redirect('zhcp:login')
+
+
+def piano(request):
+    """
+    返回钢琴游戏页面
+    :param request:
+    :return:
+    """
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        return render(request, 'mobile/piano.html', )
+    else:
+        return redirect('zhcp:login')

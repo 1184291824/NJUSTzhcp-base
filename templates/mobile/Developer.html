@@ -1,0 +1,104 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>开发者信息</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="{% static 'mui/css/mui.min.css' %}" rel="stylesheet" />
+		<style type="text/css">
+			.mui-card-header > img:first-child{
+				width: 60px;
+				height: 60px;
+			}
+			.mui-media-img{
+				margin-right: 10px;
+				border-radius: 30px;
+				box-shadow: 0 0 10px 1px lightgray;
+			}
+			.mui-card{
+				border-radius: 10px;
+                margin-bottom: 30px;
+			}
+			.mui-media-body>h3{
+				font-weight: 100;
+				margin-bottom: 10px;
+			}
+			.mui-card-content>img{
+				margin-top: 5px;
+				width: 100%;
+			}
+			.mui-card-content>p{
+				margin-left: 15px;
+				margin-right: 15px;
+			}
+            .mui-card-footer-icon{
+                width: 20px;
+            }
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+			<h1 class="mui-title">开发者信息</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header mui-card-media">
+					<img class="mui-media-img" src="{% static 'img/members/mzx.jpg' %}" alt="头像"/>
+					<div class="mui-media-body">
+						<h3>马子轩</h3>
+						<p>南京理工大学电光学院16级本科生</p>
+					</div>
+				</div>
+				<!--内容区-->
+				<div class="mui-card-content">
+					<img src="{% static 'mui/img/developer/mzx_picture.png' %}" alt="展示图片">
+					<p>&emsp;&emsp;我制作了本网站的绝大部分内容，包含后端和前端，PC端和移动端的开发</p>
+					<p>&emsp;&emsp;与此同时，我还制作了一些好玩的小型网页游戏，欢迎大家体验。链接如下</p>
+				</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">
+					<a href="http://1184291824.pythonanywhere.com/blueBlock">别碰蓝块</a>
+                    <a href="{% url 'zhcp:piano' %}">钢琴块游戏</a>
+					<a href="http://1184291824.pythonanywhere.com/shootGame">射击游戏</a>
+				</div>
+			</div>
+			
+			<div class="mui-card">
+				<!--页眉，放置标题-->
+				<div class="mui-card-header mui-card-media">
+					<img class="mui-media-img" src="{% static 'img/members/yzz.jpg' %}" />
+					<div class="mui-media-body">
+						<h3>陈卓</h3>
+						<p>南京理工大学电光学院16级本科生</p>
+					</div>
+				</div>
+				<!--内容区-->
+				<div class="mui-card-content">
+					<img src="{% static 'mui/img/developer/cz_picture.png' %}" alt="展示图片">
+					<p>&emsp;&emsp;陈卓——被帅气耽误的美工</p>
+				</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">
+					<img class="mui-card-footer-icon" src="{% static  'mui/img/icon/审核申请.png' %}" alt="审核申请"/>
+					<img class="mui-card-footer-icon" src="{% static  'mui/img/icon/我的活动.png' %}" alt="我的活动"/>
+					<img class="mui-card-footer-icon" src="{% static  'mui/img/icon/我的申请.png' %}" alt="我的申请"/>
+					<img class="mui-card-footer-icon" src="{% static  'mui/img/icon/我的加分.png' %}" alt="我的加分"/>
+                    <img class="mui-card-footer-icon" src="{% static  'mui/img/icon/提交活动.png' %}" alt="提交活动"/>
+					<img class="mui-card-footer-icon" src="{% static  'mui/img/icon/提交申请.png' %}" alt="提交申请"/>
+                    <img class="mui-card-footer-icon" src="{% static  'mui/img/icon/开发者信息.png' %}" alt="开发者信息"/>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="{% static 'mui/js/mui.min.js' %}"></script>
+	<script type="text/javascript">
+		mui.init()
+	</script>
+
+</html>

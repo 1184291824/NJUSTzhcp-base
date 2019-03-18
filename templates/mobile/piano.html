@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="{% static 'mui/css/mui.min.css' %}" rel="stylesheet" />
+		<style type="text/css">
+			.block {
+				width: 23%;
+				height: 150px;
+				background-color: black;
+				position: absolute;
+				top: -150px;
+				color: white;
+				font-size: 50px;
+				text-align: center;
+				line-height: 150px;
+			}
+			#num{
+				margin: 50px auto;
+				text-align: center;
+				color: white;
+			}
+			#num>h1{
+				font-size: 100px;
+				text-shadow: 0 0 30px #007AFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">钢琴块</h1>
+			<button type="button" class="mui-btn mui-btn-success" style="float: right;" id="begin">开始</button>
+		</header>
+		<div class="mui-content">
+			<div id="num"><h1>0</h1></div>
+			<div id="1" class="block" style="background-color: #4CD964;"></div>
+			<div id="2" class="block" style="left: 25%;background-color: #007AFF;"></div>
+			<div id="3" class="block" style="left: 50%; background-color: #8A6DE9;"></div>
+			<div id="4" class="block" style="left: 75%; background-color: coral;"></div>
+			<hr style="position: absolute;top: 495px; background-color: red;width: 100%;height: 1px;" />
+		</div>
+	</body>
+	<script src="{% static 'mui/js/mui.min.js' %}"></script>
+	<script src="{% static 'js/jquery-3.3.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		mui.init()
+		mui.ready(function() {
+			var num=0;
+			var divsArray = document.getElementsByClassName("block");
+			mui('.mui-content').on('tap', '.block', function() {
+				num++;
+				var top = Math.floor(Math.random()*400)+150;
+				$(this).css('top', '-'+top+'px');
+				$('#num>h1').text(num);
+				if(num===318){
+					$('#1').text('生');
+					$('#2').text('日');
+					$('#3').text('快');
+					$('#4').text('乐');
+				}
+			});
+			mui('.mui-bar-nav').on('tap', '#begin', function begin() {
+				var intervalId = setInterval(function() {
+					for (var div = 0; div < 4; div++) {
+						divsArray[div].style.top = divsArray[div].offsetTop + 5 + "px";
+						if (parseInt(divsArray[div].style.top) > 350) {
+							clearInterval(intervalId);
+							
+							mui.alert("游戏结束！", "提示", "确定", function() {
+								$('.block').css('top', '-150px');
+							});
+							num=0;
+							break;
+						}
+					}
+				}, 15);
+			})
+
+		});
+	</script>
+
+</html>
