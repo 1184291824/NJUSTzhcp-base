@@ -1,0 +1,40 @@
+.mui-card .mui-control-content {
+    padding: 10px;
+}
+
+.mui-control-content {
+    height: calc(100vh - 54px);
+    /* bottom: -20px; */
+}
+.mui-table{
+    margin: 10px auto;
+    width: 95vw;
+    /* height: 100px;
+    background-color: red; */
+}
+.mui-table-thead, .mui-table-tbody{
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 1px lightgray;
+}
+.mui-table-tr{
+    width: 100%;
+    min-height: 46px;
+    line-height: 46px;
+    text-align: center;
+    /* border: 1px solid lightgray; */
+}
+.mui-table-tr-body{
+    border-bottom: 1px solid lightgray;
+}
+.mui-table-th, .mui-table-td{
+    display: inline-block;
+    width: calc(25% - 5px);
+    /* height: 46px; */
+    /* line-height: 46px; */
+    text-align: center;
+    font-size: 14px;
+    /* overflow: hidden; */
+    vertical-align: middle;
+}

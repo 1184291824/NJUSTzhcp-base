@@ -42,7 +42,6 @@ $(document).ready(function () {
 				'code':code.val(),
 			},
 			success: function(result){
-				console.log(result);
 				if(result==="true"){
 					$('#submit-application-form>form').submit();
 				}

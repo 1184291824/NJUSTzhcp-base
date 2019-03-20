@@ -1,0 +1,103 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>审核申请</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="{% static 'mui/css/mui.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'mui/css/myApplication.css' %}">
+		<style type="text/css">
+			.mui-card .mui-control-content {
+				padding: 10px;
+			}
+
+			.mui-control-content {
+				height: calc(100vh - 114px);
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<button type="button" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span
+				 class="mui-icon mui-icon-left-nav"></span>首页</button>
+			<h1 class="mui-title">审核申请</h1>
+		</header>
+		<div class="mui-content">
+			<div style="padding: 10px 10px;">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active " href="#item1">待审核</a>
+					<a class="mui-control-item" href="#item2">我已审核</a>
+				</div>
+			</div>
+			<div>
+				<div id="item1" class="mui-control-content mui-active">
+					<div id="scroll1" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class="mui-table-view">
+                                {% for foo in application_list_without_apply %}
+								<li class="mui-table-view-cell mui-media" id="{{ foo.pk }}">
+									<div class="mui-slider-right mui-disabled">
+										<a class="mui-btn mui-btn-success">同意</a>
+										<a class="mui-btn mui-btn-danger">拒绝</a>
+										<a class="mui-btn mui-btn-warning" href="{% url 'zhcp:reviewApplicationDetail' %}?pk={{ foo.pk }}">查看详情</a>
+									</div>
+									<div class="mui-slider-handle">
+                                        <span class="mui-media-object mui-pull-left mui-media-num">{{ foo.score }}</span>
+                                        <div class="mui-media-body">
+                                            <div class="mui-table-cell">
+                                                {{ foo.name }}
+                                            </div>
+                                            <p class="mui-pull-left">{{ foo.student_id.name }}</p>
+                                            <p class="mui-pull-right">{{ foo.create_time.date }}</p>
+                                        </div>
+									</div>
+								</li>
+                                {% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="item2" class="mui-control-content">
+					<div id="scroll2" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<ul class="mui-table-view">
+                                {% for foo in application_list_applied %}
+								<li class="mui-table-view-cell mui-media" id="{{ foo.pk }}">
+									<div class="mui-slider-right mui-disabled">
+										<a class="mui-btn mui-btn-warning">查看详情</a>
+									</div>
+									<div class="mui-slider-handle">
+                                        <span class="mui-media-object mui-pull-left mui-media-num">{{ foo.score }}</span>
+                                        <div class="mui-media-body">
+                                            {% if foo.status == True %}
+                                            <p class="mui-pull-right" style="color: limegreen">审核通过</p>
+                                            {% elif foo.status == False %}
+                                                <p class="mui-pull-right" style="color: red">审核未通过</p>
+                                            {% endif %}
+                                            <div class="mui-table-cell">{{ foo.name }}</div>
+                                            <p class="mui-pull-left">{{ foo.student_id.name }}</p>
+                                            <p class="mui-pull-right">{{ foo.change_time.date }}</p>
+                                        </div>
+									</div>
+								</li>
+                                {% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="{% static 'mui/js/mui.min.js' %}"></script>
+		<script src="{% static 'mui/js/jquery-3.3.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
+        <script src="{% static 'mui/js/Ajax-csrf.js' %}" type="text/javascript" charset="utf-8"></script>
+		<script src="{% static 'mui/js/reviewApplication.js' %}" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

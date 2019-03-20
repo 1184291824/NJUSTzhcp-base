@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="{% static 'mui/css/mui.min.css' %}">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="{% static 'mui/css/submitApplication.css' %}" />
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<button type="button" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span
+				 class="mui-icon mui-icon-left-nav"></span>首页</button>
+			<h1 class="mui-title">提交申请</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded" style="margin: 5px;">
+				<form class="mui-input-group" method="post" action="{% url 'zhcp:submitApplicationAdd' %}">
+                    {% csrf_token %}
+					<div class="mui-input-row">
+						<label>活动名称</label>
+						<input type="text" id="application-name" name="application-name" value="" placeholder="请输入活动名称" maxlength="20">
+					</div>
+					<div class="mui-input-row">
+						<label>活动加分</label>
+						<div class="mui-numbox" data-numbox-step="1" data-numbox-min="1" data-numbox-max="100">
+							<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+							<input class="mui-numbox-input" type="number" id="score" name="score" value="" />
+							<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+						</div>
+					</div>
+					<div class="mui-input-row">
+						<label>详细信息</label>
+						<textarea id="textarea" rows="8" placeholder="多行文本框"></textarea>
+					</div>
+					<div id="verificationCode-div" class="img-box">
+						<img src="{% url 'zhcp:verificationCode' %}" alt="验证码" title="点击刷新验证码" id="verificationCode-img" style="width: 100%"><span>点击图片刷新验证码</span>
+					</div>
+					<div class="mui-input-row">
+						<label>
+							验证码：
+						</label>
+						<input type="text" class="mui-input-clear" id="verificationCode" name="verificationCode" value="" placeholder="请输入验证码"
+						 maxlength="4">
+					</div>
+				</form>
+				<button id="submit-application" type="button" data-loading-text="正在提交…" class="mui-btn mui-btn-primary mui-btn-block mui-btn-outlined">确认提交</button>
+			</div>
+		</div>
+		<script src="{% static 'mui/js/mui.min.js' %}"></script>
+        <script src="{% static 'mui/js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'mui/js/Ajax-csrf.js' %}"></script>
+        <script src="{% static 'mui/js/submitApplication.js' %}"></script>
+	</body>
+
+</html>

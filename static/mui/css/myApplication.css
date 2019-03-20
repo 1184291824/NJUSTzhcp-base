@@ -1,0 +1,40 @@
+.mui-card .mui-control-content {
+    padding: 10px;
+}
+
+.mui-control-content {
+    height: calc(100vh - 114px);
+    /* bottom: -20px; */
+}
+.mui-media-num{
+    text-align: center;
+    border: 1px solid #4aaeff;
+    /* box-shadow: 0 0 10px 2px #4aaeff inset; */
+    border-radius: 5px;
+    color: #4aaeff;
+    font-size: 28px;
+}
+.mui-media-num-item2{
+    border: 1px solid #3fe870;
+    /* box-shadow: 0 0 15px 1px #3fe870 inset; */
+    color: #71c88a;
+}
+.mui-media-num-item3{
+    border: 1px solid #ff832b;
+    /* box-shadow: 0 0 10px 1px #ff832b inset; */
+    color: #ff832b;
+}
+.mui-table-view .mui-media-object{
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    line-height: 40px;
+    /*margin: 15px 7px;*/
+}
+.mui-table-view .mui-media-object.mui-pull-left{
+    margin-right: 20px;
+}
+h2{
+    /* margin-top: 0; */
+    font-weight: 400;
+}

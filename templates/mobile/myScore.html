@@ -1,0 +1,76 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的加分</title>
+		<script src="{% static 'mui/js/mui.min.js' %}"></script>
+		<link href="{% static 'mui/css/mui.min.css' %}" rel="stylesheet" />
+        <link href="{% static 'mui/css/myScore.css' %}" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<button type="button" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span
+				 class="mui-icon mui-icon-left-nav"></span>首页</button>
+			<h1 class="mui-title">我的加分</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-control-content mui-active">
+				<div id="scroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="mui-table">
+							<div class="mui-table-thead">
+								<div class="mui-table-tr">
+									<div class="mui-table-th">加分名称</div>
+									<div class="mui-table-th">所加分数</div>
+									<div class="mui-table-th">加分种类</div>
+									<div class="mui-table-th">加分时间</div>
+								</div>
+							</div>
+                            <div class="mui-table-tbody">
+                                <div class="mui-table-tr">
+									<div class="mui-table-td">总分</div>
+									<div class="mui-table-td">{{ user.score_sum }}</div>
+                                    <div class="mui-table-td"></div>
+                                    <div class="mui-table-td"></div>
+								</div>
+							</div>
+							<div class="mui-table-tbody">
+                                {% for foo in application_list %}
+								<div class="mui-table-tr mui-table-tr-body">
+									<div class="mui-table-td">{{ foo.name }}</div>
+									<div class="mui-table-td">{{ foo.score }}</div>
+									<div class="mui-table-td">申请</div>
+									<div class="mui-table-td">{{ foo.change_time.month }}月{{ foo.change_time.day }}日</div>
+								</div>
+                                {% endfor %}
+							</div>
+                            <div class="mui-table-tbody">
+                                {% for foo in activity_list %}
+								<div class="mui-table-tr mui-table-tr-body">
+									<div class="mui-table-td">{{ foo.name }}</div>
+									<div class="mui-table-td">{{ foo.score }}</div>
+									<div class="mui-table-td">活动</div>
+									<div class="mui-table-td">{{ foo.create_time.month }}月{{ foo.create_time.day }}日</div>
+								</div>
+                                {% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		mui.init({
+			// swipeBack: true //启用右滑关闭功能
+		});
+		(function($) {
+			$('.mui-scroll-wrapper').scroll({
+				indicators: true, //是否显示滚动条
+				deceleration: 0.0004, //阻尼系数,系数越小滑动越灵敏
+			});
+		})(mui);
+	</script>
+</html>

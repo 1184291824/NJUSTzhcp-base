@@ -71,10 +71,10 @@ def index(request):
         identity = user.identity
         score_sum = user.score_sum
         if device(request) is True:
-            url_str = 'index.html'
+            html_str = 'index.html'
         else:
-            url_str = 'mobile/index.html'
-        return render(request, url_str, {
+            html_str = 'mobile/index.html'
+        return render(request, html_str, {
             'name': name,
             'student_id': student_id,
             'identity': identity,
@@ -250,7 +250,11 @@ def my_score(request):
         activity_list = Activity.objects.filter(
             student_id__exact=user,
         )
-        return render(request, 'myScore.html', {
+        if device(request) is True:
+            html_str = 'myScore.html'
+        else:
+            html_str = 'mobile/myScore.html'
+        return render(request, html_str, {
             'user': user,
             'application_list': application_list,
             'activity_list': activity_list,
@@ -270,7 +274,11 @@ def submit_application(request):
     if login_status == 1:
         student_id = request.session.get('student_id', 'None')
         user = Users.objects.get(student_id__exact=student_id)
-        return render(request, 'submitApplication.html', {
+        if device(request) is True:
+            html_str = 'submitApplication.html'
+        else:
+            html_str = 'mobile/submitApplication.html'
+        return render(request, html_str, {
             'user': user,
         })
     else:
@@ -299,7 +307,11 @@ def submit_application_add(request):
                 detail=detail,
             )
             new_application.save()
-            return redirect('zhcp:submitApplicationSuccess')
+            if device(request) is True:
+                url_str = 'zhcp:submitApplicationSuccess'
+            else:
+                url_str = 'zhcp:index'
+            return redirect(url_str)
         else:
             return redirect('zhcp:index')
     else:
@@ -345,7 +357,11 @@ def my_application(request):
             status__exact=False,
             captain_id__isnull=False,
         )
-        return render(request, 'myApplication2.html', {
+        if device(request) is True:
+            html_str = 'myApplication2.html'
+        else:
+            html_str = 'mobile/myApplication.html'
+        return render(request, html_str, {
             'user': user,
             'without_apply': without_apply,
             'success': success,
@@ -369,7 +385,11 @@ def my_activity(request):
         activity_list = Activity.objects.filter(
             student_id__exact=user,
         )
-        return render(request, 'myActivity.html', {
+        if device(request) is True:
+            html_str = 'myActivity.html'
+        else:
+            html_str = 'mobile/myActivity.html'
+        return render(request, html_str, {
             'user': user,
             'activity_list': activity_list,
         })
@@ -399,7 +419,11 @@ def review_application(request):
             captain_id__exact=student_id,
             student_id__class_id=user_class,  # 只让班长看到自己班的学生
         ).order_by('-change_time')
-        return render(request, 'reviewApplication.html', {
+        if device(request) is True:
+            html_str = 'reviewApplication.html'
+        else:
+            html_str = 'mobile/reviewApplication.html'
+        return render(request, html_str, {
             'user': user,
             'application_list_without_apply': application_list_without_apply,
             'application_list_applied': application_list_applied,

@@ -1,0 +1,67 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="{% static 'mui/css/mui.min.css' %}">
+		<!--App自定义的css-->
+        <link rel="stylesheet" type="text/css" href="{% static 'mui/css/myApplication.css' %}" />
+        <style>
+            .mui-control-content {
+                height: calc(100vh - 54px);
+            }
+        </style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<button type="button" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span
+				 class="mui-icon mui-icon-left-nav"></span>首页</button>
+			<h1 class="mui-title">我的活动</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-control-content mui-active">
+				<div id="scroll1" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+                            {% for foo in activity_list %}
+							<li class="mui-table-view-cell mui-media">
+								<span class="mui-media-object mui-pull-left mui-media-num mui-media-num-item2">{{ foo.score }}</span>
+								<div class="mui-media-body">
+                                    <p class="mui-pull-right">{{ foo.create_by.first.name }}</p>
+                                    <div class="mui-table-cell">
+                                        {{ foo.name }}
+                                    </div>
+                                    <p class="mui-pull-left">{{ foo.create_time.date }}</p>
+								</div>
+							</li>
+                            {% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="{% static 'mui/js/mui.min.js' %}"></script>
+		<script>
+			mui.init({
+				// swipeBack: true //启用右滑关闭功能
+			});
+			(function($) {
+				$('.mui-scroll-wrapper').scroll({
+					indicators: true, //是否显示滚动条
+					deceleration: 0.0004, //阻尼系数,系数越小滑动越灵敏
+				});
+			})(mui);
+		</script>
+
+	</body>
+
+</html>
