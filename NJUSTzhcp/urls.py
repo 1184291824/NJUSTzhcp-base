@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('zhcp/', include('zhcp.urls', namespace="zhcp"))
+    path('zhcp/', include('zhcp.urls', namespace="zhcp")),
+    path('/', include('zhcp.urls', namespace="zhcp")),
 ]

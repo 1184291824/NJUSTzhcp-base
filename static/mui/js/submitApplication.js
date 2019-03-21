@@ -26,10 +26,10 @@ mui.ready(function () {
             },
             success: function(result){
                 if(result==="true"){
-                    mui('.mui-btn').button('loading');
-                    mui.alert('提交成功，即将跳回首页', '提示', '确定', function () {
-                        $('.mui-input-group').submit();
-                    });
+                    mui('#submit-application').button('loading');
+                    // mui.alert('提交成功，即将跳回首页', '提示', '确定', function () {
+                    $('.mui-input-group').submit();
+                    // });
                 }
                 else if(result==="false"){
                     mui.alert('验证码错误', '提示', '确定', );

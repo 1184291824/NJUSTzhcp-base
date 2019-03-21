@@ -307,11 +307,7 @@ def submit_application_add(request):
                 detail=detail,
             )
             new_application.save()
-            if device(request) is True:
-                url_str = 'zhcp:submitApplicationSuccess'
-            else:
-                url_str = 'zhcp:index'
-            return redirect(url_str)
+            return redirect('zhcp:submitActivitySuccess')
         else:
             return redirect('zhcp:index')
     else:
@@ -329,7 +325,11 @@ def submit_application_success(request):
     if login_status == 1:
         student_id = request.session.get('student_id')
         user = Users.objects.get(student_id__exact=student_id)
-        return render(request, 'submitApplicationSuccess.html', {
+        if device(request) is True:
+            html_str = 'submitApplicationSuccess.html'
+        else:
+            html_str = 'mobile/submitSuccess.html'
+        return render(request, html_str, {
             'user': user,
         })
     else:
@@ -500,7 +500,11 @@ def submit_activity(request):
         user_list = Users.objects.all()
         if user.identity != 'teacher':
             return redirect('zhcp:index')
-        return render(request, 'submitActivity.html', {
+        if device(request) is True:
+            html_str = 'submitActivity.html'
+        else:
+            html_str = 'mobile/submitActivity.html'
+        return render(request, html_str, {
             'user': user,
             'user_list': user_list,
         })
@@ -549,7 +553,11 @@ def submit_activity_success(request):
     if login_status == 1:
         student_id = request.session.get('student_id')
         user = Users.objects.get(student_id__exact=student_id)
-        return render(request, 'submitActivitySuccess.html', {
+        if device(request) is True:
+            html_str = 'submitActivitySuccess.html'
+        else:
+            html_str = 'mobile/submitSuccess.html'
+        return render(request, html_str, {
             'user': user,
         })
     else:

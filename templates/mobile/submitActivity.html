@@ -4,7 +4,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>提交申请|综合测评系统</title>
+		<title>提交活动|综合测评系统</title>
         <meta name="Keywords" content="马子轩, 南理工, 综合测评系统, 南京理工大学"/>
 		<meta name="Description" content="本网站致力于打造最优化的南理工综合测评系统"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
@@ -20,11 +20,11 @@
 		<header class="mui-bar mui-bar-nav">
 			<button type="button" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span
 				 class="mui-icon mui-icon-left-nav"></span>首页</button>
-			<h1 class="mui-title">提交申请</h1>
+			<h1 class="mui-title">提交活动</h1>
 		</header>
 		<div class="mui-content">
 			<div class="mui-content-padded" style="margin: 5px;">
-				<form class="mui-input-group" method="post" action="{% url 'zhcp:submitApplicationAdd' %}">
+				<form class="mui-input-group" method="post" action="{% url 'zhcp:submitActivityAdd' %}">
                     {% csrf_token %}
 					<div class="mui-input-row">
 						<label>活动名称</label>
@@ -37,6 +37,14 @@
 							<input class="mui-numbox-input" type="number" id="score" name="score" value="" />
 							<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
 						</div>
+					</div>
+                    <div class="mui-input-row">
+						<label>参与人员</label>
+						<select name="users" id="users" multiple="multiple">
+                        {% for foo in user_list %}
+                            <option value="{{ foo.pk }}">{{ foo.student_id }}:{{ foo.name }}</option>
+                        {% endfor %}
+                        </select>
 					</div>
 					<div class="mui-input-row">
 						<label>详细信息</label>
