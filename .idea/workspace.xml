@@ -22,16 +22,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/mobile/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="34" column="91" lean-forward="true" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+            <state relative-caret-position="187">
+              <caret line="25" column="133" selection-start-line="25" selection-start-column="133" selection-end-line="25" selection-end-column="133" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NJUSTzhcp-base/使用指南.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -190,8 +190,8 @@
         <option value="$PROJECT_DIR$/zhcp/urls.py" />
         <option value="$PROJECT_DIR$/NJUSTzhcp/settings.py" />
         <option value="$PROJECT_DIR$/static/mui/css/index.css" />
-        <option value="$PROJECT_DIR$/templates/mobile/index.html" />
         <option value="$PROJECT_DIR$/NJUSTzhcp-base/使用指南.md" />
+        <option value="$PROJECT_DIR$/templates/mobile/index.html" />
       </list>
     </option>
   </component>
@@ -364,7 +364,7 @@
       <workItem from="1552888347407" duration="5260000" />
       <workItem from="1552971387777" duration="22172000" />
       <workItem from="1553169036304" duration="6591000" />
-      <workItem from="1553222451945" duration="3415000" />
+      <workItem from="1553222451945" duration="3837000" />
     </task>
     <task id="LOCAL-00001" summary="2019.12.28 21:08">
       <created>1551359523416</created>
@@ -377,7 +377,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261961000" />
+    <option name="totallyTimeSpent" value="262383000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -796,13 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mobile/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="34" column="91" lean-forward="true" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NJUSTzhcp-base/使用指南.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -810,6 +803,13 @@
             <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mobile/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="25" column="133" selection-start-line="25" selection-start-column="133" selection-end-line="25" selection-end-column="133" />
         </state>
       </provider>
     </entry>
