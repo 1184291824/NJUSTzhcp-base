@@ -14,79 +14,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/mobile/submitActivity.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/mobile/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="25" column="133" selection-start-line="25" selection-start-column="133" selection-end-line="25" selection-end-column="133" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NJUSTzhcp-base/使用指南.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="522">
-                <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/mui/css/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/mui/js/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/mui/js/submitApplication.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NJUSTzhcp-base/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="144">
-                <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zhcp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7176">
-              <caret line="301" column="45" selection-start-line="301" selection-start-column="39" selection-end-line="301" selection-end-column="45" />
+            <state relative-caret-position="475">
+              <caret line="647" column="46" lean-forward="true" selection-start-line="647" selection-start-column="46" selection-end-line="647" selection-end-column="46" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -94,11 +25,44 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NJUSTzhcp/settings.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/mobile/visitNumber.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="2640">
+              <caret line="132" column="48" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zhcp/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="427">
+              <caret line="36" column="21" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/mobile/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/zhcp/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zhcp/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1848">
-              <caret line="77" column="10" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="10" />
+            <state relative-caret-position="187">
+              <caret line="126" column="14" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -141,16 +105,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/submitApplication.html" />
         <option value="$PROJECT_DIR$/static/css/submitApplication.css" />
         <option value="$PROJECT_DIR$/static/js/submitActivity.js" />
         <option value="$PROJECT_DIR$/templates/submitActivitysuccess.html" />
         <option value="$PROJECT_DIR$/templates/submitActivitySuccess.html" />
         <option value="$PROJECT_DIR$/templates/myScore.html" />
         <option value="$PROJECT_DIR$/static/css/index.css" />
-        <option value="$PROJECT_DIR$/zhcp/admin.py" />
         <option value="$PROJECT_DIR$/templates/submitActivity.html" />
-        <option value="$PROJECT_DIR$/zhcp/models.py" />
         <option value="$PROJECT_DIR$/static/css/chosen.css" />
         <option value="$PROJECT_DIR$/static/css/register.css" />
         <option value="$PROJECT_DIR$/zhcp/VerificationCode.py" />
@@ -166,9 +127,7 @@
         <option value="$PROJECT_DIR$/static/mui/js/reviewApplication.js" />
         <option value="$PROJECT_DIR$/static/mui/css/submitApplication.css" />
         <option value="$PROJECT_DIR$/static/js/submitApplication.js" />
-        <option value="$PROJECT_DIR$/NJUSTzhcp-base/NJUSTzhcp/settings.py" />
         <option value="$PROJECT_DIR$/static/mui/js/submitApplication.js" />
-        <option value="$PROJECT_DIR$/zhcp/views.py" />
         <option value="$PROJECT_DIR$/templates/mobile/login.html" />
         <option value="$PROJECT_DIR$/templates/mobile/register.html" />
         <option value="$PROJECT_DIR$/templates/mobile/base0.html" />
@@ -182,16 +141,21 @@
         <option value="$PROJECT_DIR$/templates/mobile/submitApplication.html" />
         <option value="$PROJECT_DIR$/templates/mobile/submitSuccess.html" />
         <option value="$PROJECT_DIR$/templates/base1.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/register.html" />
         <option value="$PROJECT_DIR$/NJUSTzhcp-base/README.md" />
         <option value="$PROJECT_DIR$/NJUSTzhcp/urls.py" />
-        <option value="$PROJECT_DIR$/zhcp/urls.py" />
         <option value="$PROJECT_DIR$/NJUSTzhcp/settings.py" />
         <option value="$PROJECT_DIR$/static/mui/css/index.css" />
         <option value="$PROJECT_DIR$/NJUSTzhcp-base/使用指南.md" />
+        <option value="$PROJECT_DIR$/NJUSTzhcp-base/NJUSTzhcp/settings.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/zhcp/models.py" />
+        <option value="$PROJECT_DIR$/zhcp/admin.py" />
+        <option value="$PROJECT_DIR$/zhcp/urls.py" />
         <option value="$PROJECT_DIR$/templates/mobile/index.html" />
+        <option value="$PROJECT_DIR$/zhcp/views.py" />
+        <option value="$PROJECT_DIR$/templates/mobile/visitNumber.html" />
       </list>
     </option>
   </component>
@@ -212,40 +176,6 @@
             <path>
               <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
               <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
-              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
-              <item name="NJUSTzhcp-base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="mui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="mui" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
@@ -280,16 +210,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\project\NJUSTzhcp\static\mui\css" />
-      <recent name="D:\project\NJUSTzhcp\templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\project\NJUSTzhcp\templates\mobile" />
       <recent name="D:\project\NJUSTzhcp\static\mui\img\developer" />
       <recent name="D:\project\NJUSTzhcp\static\mui\css" />
       <recent name="D:\project\NJUSTzhcp\static\mui\js" />
       <recent name="D:\project\NJUSTzhcp\static\mui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\NJUSTzhcp\static\mui\css" />
+      <recent name="D:\project\NJUSTzhcp\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -364,7 +294,11 @@
       <workItem from="1552888347407" duration="5260000" />
       <workItem from="1552971387777" duration="22172000" />
       <workItem from="1553169036304" duration="6591000" />
-      <workItem from="1553222451945" duration="3837000" />
+      <workItem from="1553222451945" duration="4619000" />
+      <workItem from="1553319802506" duration="1214000" />
+      <workItem from="1554278479321" duration="131000" />
+      <workItem from="1556185722560" duration="1013000" />
+      <workItem from="1556191243742" duration="9433000" />
     </task>
     <task id="LOCAL-00001" summary="2019.12.28 21:08">
       <created>1551359523416</created>
@@ -377,7 +311,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="262383000" />
+    <option name="totallyTimeSpent" value="274956000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -392,7 +326,7 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19101876" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20174263" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -469,15 +403,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="2019.12.28 21:08" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/img/index/成绩.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/index/申请.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/index/我的申请.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/mui/img/icon/审核申请.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -583,29 +508,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NJUSTzhcp-base/NJUSTzhcp/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/submitActivity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-480" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/submitActivity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mobile/base0.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -634,13 +540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mobile/myScore.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -679,13 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -693,34 +585,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/myActivity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="27" column="56" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zhcp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -734,48 +602,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zhcp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7176">
-          <caret line="301" column="45" selection-start-line="301" selection-start-column="39" selection-end-line="301" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zhcp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1848">
-          <caret line="77" column="10" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/mobile/submitActivity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
+        <state relative-caret-position="1656">
           <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NJUSTzhcp-base/NJUSTzhcp/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NJUSTzhcp/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/mui/js/submitApplication.js">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="619">
-          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/mui/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -789,27 +633,130 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/mui/js/submitApplication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/mui/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/mui/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+        <state relative-caret-position="619">
+          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NJUSTzhcp-base/使用指南.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="522">
+          <first_editor relative-caret-position="618">
             <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mobile/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/mobile/base0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5">
+          <caret line="27" column="12" lean-forward="true" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/submitActivity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="62" column="10" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="62" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="25" column="133" selection-start-line="25" selection-start-column="133" selection-end-line="25" selection-end-column="133" />
+          <caret line="116" column="4" lean-forward="true" selection-start-line="116" selection-start-column="4" selection-end-line="122" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/myActivity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="27" column="56" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2136">
+          <caret line="102" column="7" lean-forward="true" selection-start-line="102" selection-start-column="7" selection-end-line="102" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zhcp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="126" column="14" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mobile/myScore.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="10" column="75" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="10" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zhcp/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mobile/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zhcp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="36" column="21" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zhcp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="647" column="46" lean-forward="true" selection-start-line="647" selection-start-column="46" selection-end-line="647" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mobile/visitNumber.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2640">
+          <caret line="132" column="48" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="48" />
         </state>
       </provider>
     </entry>

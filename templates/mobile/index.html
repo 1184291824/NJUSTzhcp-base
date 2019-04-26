@@ -29,7 +29,7 @@
                             <a href="https://github.com/1184291824/NJUSTzhcp-base/blob/master/README.md">更新日志</a>
                         </li>
                         <li class="mui-table-view-cell">
-                            <a href="#" disabled="disabled">意见与反馈</a>
+                            <a href="{% url 'zhcp:visitNumber' %}" disabled="disabled">网站访问量统计</a>
                         </li>
                         <li class="mui-table-view-cell">
                             <a href="https://github.com/1184291824/NJUSTzhcp-base">网站源码</a>
@@ -152,6 +152,13 @@
 			mui.init();
 			mui('.mui-scroll-wrapper').scroll();
 		</script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $.ajax({
+                    url:"../refresh_visit_number/",
+                })
+            })
+        </script>
 	</body>
 
 </html>

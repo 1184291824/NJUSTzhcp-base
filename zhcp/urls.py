@@ -34,5 +34,8 @@ urlpatterns = [
     path('submitActivity/success/', views.submit_activity_success, name='submitActivitySuccess'),
     path('developer/', views.developer, name="developer"),
     path('piano/', views.piano, name="piano"),
+    path('visitNumber/', views.visit_number, name="visitNumber"),
+
+    path('refresh_visit_number/', views.refresh_visit_number, name="refreshVisitNumber"),
 
 ]

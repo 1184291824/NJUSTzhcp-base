@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import Users, Activity, Application, Classes
+from .models import *
 from django.contrib.auth import logout
+from django.utils import timezone
 
 # Create your views here.
 
@@ -590,3 +591,62 @@ def piano(request):
         return render(request, 'mobile/piano.html', )
     else:
         return redirect('zhcp:login')
+
+
+def refresh_visit_number(request):
+    """
+    更新网站的访问次数
+    :param request:
+    :return:
+    """
+    # 每一次访问，网站总访问次数加一
+    count_nums = VisitNumber.objects.filter(id=1)
+    if count_nums:
+        count_nums = count_nums[0]
+        count_nums.count += 1
+    else:
+        count_nums = VisitNumber()
+        count_nums.count = 1
+    count_nums.save()
+
+    # 记录访问ip和每个ip的次数
+    if 'HTTP_X_FORWARDED_FOR' in request.META:  # 获取ip
+        client_ip = request.META['HTTP_X_FORWARDED_FOR']  # 所以这里是真实的ip
+    else:
+        client_ip = request.META['REMOTE_ADDR']  # 这里获得代理ip
+
+    customer = UserIP()
+    customer.ip = client_ip
+    customer.student_id = request.session.get('student_id')
+    if device(request) is True:
+        customer.equipment_model = '电脑'
+    else:
+        customer.equipment_model = '移动设备'
+    customer.save()
+
+    # 增加今日访问次数
+    date = timezone.now().date()
+    today = DayNumber.objects.filter(day=date)
+    if today:
+        temp = today[0]
+        temp.count += 1
+    else:
+        temp = DayNumber()
+        temp.count = 1
+    temp.save()
+
+
+def visit_number(request):
+    """返回访问次数的页面"""
+    login_status = request.session.get('login_status', 0)
+
+    if login_status == 1:
+        whole_number = VisitNumber.objects.filter(id=1)[0].count
+        day_number_list = DayNumber.objects.all().order_by('-id')[:5]
+        return render(request, 'mobile/visitNumber.html', {
+            'whole_number': whole_number,
+            'day_number_list': day_number_list,
+        })
+    else:
+        return redirect('zhcp:login')
+

@@ -122,5 +122,45 @@ class Activity(models.Model):
         ordering = ['id']  # 以id为标准升序
 
 
+class UserIP(models.Model):
+    """访问网站的ip地址和次数"""
+    student_id = models.CharField(max_length=12, default='未知账户')
+    ip = models.CharField(max_length=30)  # ip地址
+    time = models.DateTimeField(auto_now_add=True)  # 访问时间
+    equipment_model = models.CharField(default='未知机型', max_length=30)  # 设备类型
+
+    def __str__(self):
+        return self.ip
+
+    class Meta:
+        db_table = 'UserIP'
+        ordering = ['id']  # 以id为标准升序
+
+
+class VisitNumber(models.Model):
+    """网站总访问次数"""
+    count = models.IntegerField(default=0)  # 网站访问总次数
+
+    def __str__(self):
+        return str(self.count)
+
+    class Meta:
+        db_table = 'VisitNumber'
+
+
+class DayNumber(models.Model):
+    """单日访问量统计"""
+    day = models.DateField(auto_now_add=True)
+    count = models.IntegerField(default=0)  # 网站访问总次数
+
+    def __str__(self):
+        return str(self.day)
+
+    class Meta:
+        db_table = 'DayNumber'
+        ordering = ['day']  # 以id为标准升序
+
+
+
 
 

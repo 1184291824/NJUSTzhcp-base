@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Users, Application, Activity, Classes
+from .models import *
 
 
 @admin.register(Users)
@@ -57,3 +57,40 @@ class ClassesAdmin(admin.ModelAdmin):
     ]
 
     search_fields = ['classes_id']  # 搜索字段
+
+
+@admin.register(UserIP)
+class UserIPAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'pk',
+        'student_id',
+        'ip',
+        'time',
+        'equipment_model',
+    ]
+
+    search_fields = ['ip']  # 搜索字段
+
+
+@admin.register(VisitNumber)
+class VisitNumberAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'pk',
+        'count',
+    ]
+
+    search_fields = ['pk']  # 搜索字段
+
+
+@admin.register(DayNumber)
+class DayNumberAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'pk',
+        'day',
+        'count',
+    ]
+
+    search_fields = ['day']  # 搜索字段

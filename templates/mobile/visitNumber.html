@@ -1,0 +1,142 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>网站访问量统计</title>
+        <meta name="Keywords" content="马子轩, 南理工, 综合测评系统, 南京理工大学"/>
+		<meta name="Description" content="本网站致力于打造最优化的南理工综合测评系统"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <script src="{% static 'mui/js/mui.min.js' %}"></script>
+		<link href="{% static 'mui/css/mui.min.css' %}" rel="stylesheet" />
+    </head>
+    <style type="text/css">
+        .mui-control-content {
+            height: calc(100vh - 54px);
+        }
+
+        .mui-table-view {
+            margin: 7px 10px 30px 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 1px 1px 5px 1px lightgrey;
+        }
+
+        .mui-table-view:before,
+        .mui-table-view:after {
+            display: none;
+        }
+    </style>
+
+    <body>
+        <header class="mui-bar mui-bar-nav">
+            <button type="button" class="mui-action-back mui-btn mui-btn-blue mui-btn-link mui-btn-nav mui-pull-left"><span
+                    class="mui-icon mui-icon-left-nav"></span>首页</button>
+            <h1 class="mui-title">网站访问量统计</h1>
+        </header>
+        <div class="mui-content">
+            <div class="mui-control-content mui-active">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <ul class="mui-table-view" style="margin-top: 30px;">
+                            <li class="mui-table-view-cell">
+                                网站总访问次数
+                                <span style="float: right;">{{ whole_number }}</span>
+                            </li>
+                        </ul>
+                        <ul class="mui-table-view">
+                            <li class="mui-table-view-cell">
+                                今日访问次数
+                                <span style="float: right;">{{ day_number_list.first.count }}</span>
+                            </li>
+                        </ul>
+                        <ul class="mui-table-view">
+                            <canvas id="DayNumber" height="300vw"></canvas>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js" type="text/javascript" charset="utf-8"></script>
+
+        <script type="text/javascript">
+            mui.init();
+            (function($) {
+            	$('.mui-scroll-wrapper').scroll({
+            		indicators: false, //是否显示滚动条
+            	});
+            })(mui);
+        </script>
+        <script type="text/javascript" charset="utf-8">
+            var ctx = document.getElementById('DayNumber').getContext('2d');
+            {#var date = new Date();#}
+            {#var month = date.getMonth()+1;#}
+            {#var day = date.getDate();#}
+            {#var str = [#}
+            {#    month + '月' + (day - 4) + '日',#}
+            {#    month + '月' + (day - 3) + '日',#}
+            {#    month + '月' + (day - 2) + '日',#}
+            {#    month + '月' + (day - 1) + '日',#}
+            {#    month + '月' + (day) + '日',#}
+            {#];#}
+            var str = [
+                {% for foo in day_number_list %}
+                    '{{ foo.day.month }}月{{ foo.day.day }}日',
+                {% endfor %}
+            ];
+            var data = [{% for foo in day_number_list %}{{ foo.count }},{% endfor %}];
+            str.reverse();
+            data.reverse();
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+
+                // The data for our dataset
+                data: {
+                    labels: str,
+                    datasets: [{
+                        label: '日访问量',
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: '#36a2eb',
+                        pointBorderColor: 'rgba(54, 162, 235, 0.2)',
+                        pointBorderWidth: '5',
+                        pointRadius: '4',
+                        pointBackgroundColor: '#36a2eb',
+                        pointHoverRadius: '6',
+                        pointHoverBorderColor: 'rgba(54, 162, 235, 0.2)',
+                        pointHoverBorderWidth: '7',
+                        {#data: [0, 10, 5, 2, 20, ],#}
+                        data:data,
+                    }],
+                },
+                options: {
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 10,
+                            top: 10,
+                            bottom: 10,
+                        }
+                    },
+                    legend: {
+                        labels: {
+                            fontColor: 'gray',
+                            fontSize: 16,
+                        }
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                suggestedMax: 10,
+                            }
+                        }]
+                    },
+                }
+            });
+        </script>
+    </body>
+
+</html>

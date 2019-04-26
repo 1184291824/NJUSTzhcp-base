@@ -114,7 +114,13 @@
     <script src="{% static "js/header.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
     <script src="{% static "js/Ajax-csrf.js" %}" type="text/javascript" charset="utf-8"></script>
     <script src="{% static "js/index.js" %}?ver=1" type="text/javascript" charset="utf-8"></script>
-
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                url:"../refresh_visit_number/",
+		    })
+        })
+    </script>
 
 	
 {#	<script src="../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>#}
