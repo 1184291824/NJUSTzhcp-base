@@ -16,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zhcp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="647" column="46" lean-forward="true" selection-start-line="647" selection-start-column="46" selection-end-line="647" selection-end-column="46" />
+            <state relative-caret-position="595">
+              <caret line="655" column="42" selection-start-line="655" selection-start-column="42" selection-end-line="655" selection-end-column="42" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -26,10 +26,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/mobile/visitNumber.html">
+        <entry file="file://$PROJECT_DIR$/templates/mqj/mqj.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2640">
-              <caret line="132" column="48" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="48" />
+            <state relative-caret-position="-461">
+              <caret line="71" column="60" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -37,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zhcp/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="36" column="21" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="499">
+              <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -49,29 +52,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/mobile/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+            <state relative-caret-position="523">
+              <caret line="37" column="70" selection-start-line="37" selection-start-column="70" selection-end-line="37" selection-end-column="70" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zhcp/admin.py">
+        <entry file="file://$PROJECT_DIR$/NJUSTzhcp/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/zhcp/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="126" column="14" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="14" />
+            <state relative-caret-position="379">
+              <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -105,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/css/submitApplication.css" />
         <option value="$PROJECT_DIR$/static/js/submitActivity.js" />
         <option value="$PROJECT_DIR$/templates/submitActivitysuccess.html" />
         <option value="$PROJECT_DIR$/templates/submitActivitySuccess.html" />
@@ -152,10 +142,11 @@
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/zhcp/models.py" />
         <option value="$PROJECT_DIR$/zhcp/admin.py" />
+        <option value="$PROJECT_DIR$/templates/mobile/visitNumber.html" />
+        <option value="$PROJECT_DIR$/zhcp/views.py" />
         <option value="$PROJECT_DIR$/zhcp/urls.py" />
         <option value="$PROJECT_DIR$/templates/mobile/index.html" />
-        <option value="$PROJECT_DIR$/zhcp/views.py" />
-        <option value="$PROJECT_DIR$/templates/mobile/visitNumber.html" />
+        <option value="$PROJECT_DIR$/templates/mqj/mqj.html" />
       </list>
     </option>
   </component>
@@ -180,6 +171,22 @@
             <path>
               <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
               <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
+              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="music" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -187,6 +194,12 @@
               <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="mobile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NJUSTzhcp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="mqj" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NJUSTzhcp" type="b2602c69:ProjectViewProjectNode" />
@@ -210,16 +223,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\project\NJUSTzhcp\static" />
+      <recent name="D:\project\NJUSTzhcp\templates\mqj" />
+      <recent name="D:\project\NJUSTzhcp\static\mui\css" />
+      <recent name="D:\project\NJUSTzhcp\templates" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\NJUSTzhcp\static\music" />
       <recent name="D:\project\NJUSTzhcp\templates\mobile" />
       <recent name="D:\project\NJUSTzhcp\static\mui\img\developer" />
       <recent name="D:\project\NJUSTzhcp\static\mui\css" />
       <recent name="D:\project\NJUSTzhcp\static\mui\js" />
-      <recent name="D:\project\NJUSTzhcp\static\mui" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\project\NJUSTzhcp\static\mui\css" />
-      <recent name="D:\project\NJUSTzhcp\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -299,6 +314,9 @@
       <workItem from="1554278479321" duration="131000" />
       <workItem from="1556185722560" duration="1013000" />
       <workItem from="1556191243742" duration="9433000" />
+      <workItem from="1556329355001" duration="2388000" />
+      <workItem from="1557585729095" duration="79000" />
+      <workItem from="1557585903123" duration="1473000" />
     </task>
     <task id="LOCAL-00001" summary="2019.12.28 21:08">
       <created>1551359523416</created>
@@ -311,7 +329,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="274956000" />
+    <option name="totallyTimeSpent" value="278896000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -326,7 +344,7 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20174263" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20978552" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -403,9 +421,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="2019.12.28 21:08" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/mui/img/icon/审核申请.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/mui/css/mui.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -616,13 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NJUSTzhcp/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NJUSTzhcp-base/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -681,13 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="116" column="4" lean-forward="true" selection-start-line="116" selection-start-column="4" selection-end-line="122" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/myActivity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
@@ -702,17 +703,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zhcp/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/mobile/visitNumber.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="126" column="14" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mobile/myScore.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="10" column="75" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="10" selection-end-column="75" />
+        <state relative-caret-position="235">
+          <caret line="116" column="37" selection-start-line="116" selection-start-column="37" selection-end-line="116" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -726,37 +720,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mobile/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/mobile/myScore.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="32" column="29" lean-forward="true" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
+        <state relative-caret-position="240">
+          <caret line="10" column="75" selection-start-line="9" selection-start-column="8" selection-end-line="10" selection-end-column="75" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zhcp/urls.py">
+    <entry file="file://$PROJECT_DIR$/zhcp/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="3024">
+          <caret line="126" column="14" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zhcp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="647" column="46" lean-forward="true" selection-start-line="647" selection-start-column="46" selection-end-line="647" selection-end-column="46" />
+        <state relative-caret-position="595">
+          <caret line="655" column="42" selection-start-line="655" selection-start-column="42" selection-end-line="655" selection-end-column="42" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/mobile/visitNumber.html">
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
-          <caret line="132" column="48" selection-start-line="132" selection-start-column="48" selection-end-line="132" selection-end-column="48" />
+        <state relative-caret-position="187">
+          <caret line="116" column="4" lean-forward="true" selection-start-line="116" selection-start-column="4" selection-end-line="122" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zhcp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mobile/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="37" column="70" selection-start-line="37" selection-start-column="70" selection-end-line="37" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NJUSTzhcp/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mqj/mqj.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-461">
+          <caret line="71" column="60" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#section#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

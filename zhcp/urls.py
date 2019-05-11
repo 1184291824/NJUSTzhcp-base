@@ -38,4 +38,6 @@ urlpatterns = [
 
     path('refresh_visit_number/', views.refresh_visit_number, name="refreshVisitNumber"),
 
+    path('mqj/', views.mqj, name="mqj"),
+
 ]

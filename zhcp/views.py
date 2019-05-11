@@ -650,3 +650,8 @@ def visit_number(request):
     else:
         return redirect('zhcp:login')
 
+
+def mqj(request):
+    """母亲节特殊页面"""
+    return render(request, 'mqj/mqj.html')
+

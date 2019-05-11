@@ -1,0 +1,241 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>元宵节</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+
+<link rel="stylesheet" href="{% static 'festival/css/swiper.min.css' %}">
+<link rel="stylesheet" href="{% static 'festival/css/animate.min.css' %}">
+<script src="{% static 'festival/js/swiper.min.js' %}"></script>
+<script src="{% static 'festival/js/swiper.animate.min.js' %}"></script>
+
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+html,body{
+	height:100%;
+}
+@font-face {
+    font-family:font1;
+    src: url({% static 'festival/upload/STXINGKA.TTF' %});
+}
+body{
+	font-family:'font1';
+}
+.swiper-container {
+  /*  width: 320px;
+    height: 480px;*/
+	width: 100%;
+    height: 100%;
+	background:#fff;
+}  
+.swiper-slide{
+}
+.swiper-slide{
+	width:100%;
+	height:100%;
+	background:url({% static 'festival/upload/bg.png' %}) repeat left top;
+    /* background-color: green; */
+	/* background-size:300% 100%; */
+}
+img{
+	display:block;
+}
+.swiper-pagination-bullet {
+width: 6px;
+height: 6px;
+background: #fff;
+opacity: .4;
+}
+.swiper-pagination-bullet-active {
+opacity: 1;
+}
+@-webkit-keyframes tipmove{0%{bottom:10px;opacity:0}50%{bottom:15px;opacity:1}100%{bottom:20px;opacity:0}}
+.ani{
+	position:absolute;
+	}
+.txt{
+	position:absolute;
+}
+#array{
+	position:absolute;z-index:999;-webkit-animation: tipmove 1.5s infinite ease-in-out;
+}
+</style>
+</head>
+
+<body>
+<audio id='audio' src='{% static 'music/bgm1.mp3' %}' loop></audio>
+<button id='status' onclick='triggerBgMusic()'>播放按钮</button>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+    <!-------------slide1----------------->
+        <section class="swiper-slide">
+            
+        <img src="{% static 'festival/upload/flower.png' %}" class="ani resize" style="width:180px;height:220px;left:0;top:0;z-index:2;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0s"   >
+        <img src="{% static 'festival/upload/s1.jpg' %}"  class="ani resize" style="width:320px;height:180px;left:0px;top:160px;z-index:1;" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"  >
+        <div class="ani resize" style="width:calc(100vw);height:50px; bottom:80px;z-index:3;color:#f0f0f0;font-size:460%; font-weight:normal; text-align: center; text-shadow: #000000 2px 2px 10px;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1s"  > 
+        <!-- <div class="txt"> -->
+        ——马子轩<br>
+        <!-- </div> -->
+        </div>
+        
+        </section>
+     <!---------------slide2-------------->   
+        <section class="swiper-slide">
+        <img src="{% static 'festival/upload/s2-i5.png' %}" class="ani resize" style="width:calc(100vw);height:177px;top:262px;z-index:3;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="1.5s"  >
+        <div class="ani resize" style="width:215px;height:163px;left:31px;top:20px;z-index:4;color:#000000; font-size:160%; font-weight:lighter; text-align: left;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="1.3s"  >
+            谢谢你，我的母亲。<br>
+            在很多孤独的夜晚，在我那些生病的日子里，还有很多很多想哭也哭不出来的时候，我都会想起你，当然，也会想起我爸爸。是你们给了我继续走下去的力量，那种力量是无形却伟大的，是其他任何人都给予不了的。<br>
+        </div>
+        <div class="ani resize" style="width:64px;height:221px;left:237px;top:20px;z-index:2;color:#000000; font-size:660%; font-weight:lighter; text-align: center; text-shadow: white 2px 2px 10px;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s"  > 
+        <!-- <div class="txt"> -->
+        母<br>
+        亲<br>
+        节<br>
+        <!-- </div> -->
+        </div>
+        
+        </section>
+     <!----------------slide3-------------->
+        <section class="swiper-slide">
+        
+        <img src="{% static 'festival/upload/yzy.jpg' %}" class="ani resize" style="width:calc(100vw);height:177px;top:262px;z-index:3;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="2s"  >
+        <!-- <img src="upload/s3-i4.png" class="ani resize" style="width:195px;height:163px;left:31px;top:48px;z-index:4;" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s"  > -->
+        <div class="ani resize" style="width:215px;height:163px;left:31px;top:20px;z-index:4;color:#000000; font-size:160%; font-weight:lighter; text-align: left;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="1.3s"  >
+            现在，我的生活逐渐变得规律。每天早晨起的不是很早，但是在该出现的地方出现。我现在也基本安顿了下来，保证所有的科目考到90分左右就可以了。希望我可以继续加油。<br>
+            希望你和我爸爸都能够身体健康，不要总是忙于工作，该放松的时候就要多放松。人生就是活得自在和幸福嘛，你说是吧<br>
+        </div>
+        <div class="ani resize" style="width:64px;height:221px;left:237px;top:20px;z-index:2;color:#000000; font-size:660%; font-weight:lighter; text-align: center; text-shadow: white 2px 2px 10px;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s"  > 
+        <!-- <div class="txt"> -->
+        谢<br>
+        谢<br>
+        您<br>
+        <!-- </div> -->
+        </div>
+        
+        </section>
+        <!-------------slide4----------------->
+        
+        <section class="swiper-slide">
+            <img src="{% static 'festival/upload/s0.jpg' %}" class="ani resize" style="width: calc(100vw); height: calc(100vh);" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s">
+           <div class="ani resize" style="width:calc(100vw);height:110px; bottom:100px;z-index:3;color:white; font-size:460%; font-weight:bold; text-align: center;" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1s"  > 
+           <!-- <div class="txt"> -->
+           妈妈<br>
+           我永远爱你<br>
+           <!-- </div> -->
+           </div>
+        </section>
+    </div>
+    
+   <img src="{% static 'festival/images/web-swipe-tip.png' %}" style="width:20px;height:15px; top:460px; left:150px;" id="array" class="resize">
+  <div class="swiper-pagination"></div>  
+</div>
+
+<audio id='audio' src='{% static 'music/bgm1.mp3' %}' loop></audio>
+<button id='status' onclick='triggerBgMusic()'>播放按钮</button>
+<script>
+    //----------页面初始化------------
+    var audio = document.getElementById('audio');
+    if(sessionStorage.bgmusic=='pause'){
+        playBgMusic(false);
+    }else{
+        playBgMusic(true);
+         //----------处理自动播放------------
+        //--创建页面监听，等待微信端页面加载完毕 触发音频播放
+        document.addEventListener('DOMContentLoaded', function () {
+            function audioAutoPlay() {
+                playBgMusic(true);
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    playBgMusic(true);
+                }, false);
+            }
+            audioAutoPlay();
+        });
+        //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+        function audioAutoPlay() {
+            playBgMusic(true);
+            document.removeEventListener('touchstart',audioAutoPlay);
+        }
+        document.addEventListener('touchstart', audioAutoPlay);
+    }
+    //----------处理页面激活------------
+    var hiddenProperty = 'hidden' in document ? 'hidden' :
+    'webkitHidden' in document ? 'webkitHidden' :
+    'mozHidden' in document ? 'mozHidden' :
+    null;
+    var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+    var onVisibilityChange = function(){
+        if (!document[hiddenProperty]) {
+            if(!sessionStorage.bgmusic||sessionStorage.bgmusic=='play'){
+                audio.play();
+            }
+        }else{
+            audio.pause();
+        }
+    }
+    document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+    //---------背景音乐开关----------
+    function triggerBgMusic(){
+        if(!sessionStorage.bgmusic||sessionStorage.bgmusic=='play'){
+            playBgMusic(false);
+        }else{
+            playBgMusic(true);
+        }
+    }
+    //---------音乐播放和暂停----------
+    function playBgMusic(val){
+        if(val){
+            audio.play();
+            sessionStorage.bgmusic='play';
+            document.getElementById('status').innerHTML='正在播放';
+        }else{
+            audio.pause();
+            sessionStorage.bgmusic='pause';
+            document.getElementById('status').innerHTML='停止播放了';
+        }
+    }
+</script>
+
+
+<script>  
+
+scaleW=window.innerWidth/320;
+scaleH=window.innerHeight/480;
+var resizes = document.querySelectorAll('.resize');
+          for (var j=0; j<resizes.length; j++) {
+           resizes[j].style.width=parseInt(resizes[j].style.width)*scaleW+'px';
+		   resizes[j].style.height=parseInt(resizes[j].style.height)*scaleH+'px';
+		   resizes[j].style.top=parseInt(resizes[j].style.top)*scaleH+'px';
+		   resizes[j].style.left=parseInt(resizes[j].style.left)*scaleW+'px'; 
+	
+          }
+var scales = document.querySelectorAll('.txt');
+for (var i=0; i<scales.length; i++) {
+	ss=scales[i].style;
+	ss.webkitTransform = ss.MsTransform = ss.msTransform = ss.MozTransform = ss.OTransform =ss.transform='translateX('+scales[i].offsetWidth*(scaleW-1)/2+'px) translateY('+scales[i].offsetHeight*(scaleH-1)/2+'px)scaleX('+scaleW+') scaleY('+scaleH+') ';
+}
+
+		  
+  var mySwiper = new Swiper ('.swiper-container', {
+    direction : 'vertical',
+    pagination: {
+	   el:'.swiper-pagination',
+    },
+    mousewheel: true,
+    on:{
+	  init: function(){
+        swiperAnimateCache(this);
+        swiperAnimate(this);
+ 	  },
+      slideChangeTransitionEnd: function(){
+  	    swiperAnimate(this);
+      }
+    }
+  })         
+  </script>
+</body>
+</html>
